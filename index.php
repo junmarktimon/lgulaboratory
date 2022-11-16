@@ -1,6 +1,6 @@
 <?php
 
-    include 'header.php';
+    include 'include/header.php';
 
 ?>
 
@@ -12,7 +12,7 @@
 
 		<h1> GINGOOG CITY </h1>
 
-		<img src="logo.jpg" class="rounded-circle">
+		<img src="include/logo.jpg" class="rounded-circle">
 		
 	</div>
 
@@ -47,7 +47,7 @@
 
 <?php
 
-	include 'footer.php';
+	include 'include/footer.php';
 
 ?>
 
