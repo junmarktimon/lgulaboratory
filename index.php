@@ -45,8 +45,8 @@
 				  <button type="submit" class="btn btn-primary btn-block" name="btn_login"> Login </button>
 				</form>
 
-				<h6 class="text-center mt-5"> DEVELOP BY: </h6>
-				<p class="text-center font-weight-bolder"> CITY HEALTH OFFICE_VAXCERT ICT TEAM</p>
+				<h6 class="text-center mt-5"> DEVELOPED BY: </h6>
+				<p class="text-center font-weight-bolder"> CITY HEALTH OFFICE-VAXCERT ICT TEAM</p>
 				
 			</div>
 			<div class="col-4"></div>
