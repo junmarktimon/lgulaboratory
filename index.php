@@ -48,6 +48,13 @@
 				<h6 class="text-center mt-5"> DEVELOPED BY: </h6>
 				<p class="text-center font-weight-bolder"> CITY HEALTH OFFICE-VAXCERT ICT TEAM</p>
 				
+				<div>
+					<span> Love Sniper </span>
+					<span> Love Sniper </span>
+					<span> Love Sniper </span>
+					<span> Love Sniper </span>
+				</div>
+				
 			</div>
 			<div class="col-4"></div>
 		</div>

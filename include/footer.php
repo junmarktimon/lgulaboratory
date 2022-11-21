@@ -22,5 +22,54 @@
     </script>
 
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="../code.php" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" name="lname" class="form-control" id="lastname">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" name="fname" class="form-control" id="firstname">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Middle Name</label>
+            <input type="text" name="mname" class="form-control" id="middlename">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Suffix Name</label>
+            <input type="text" name="suffix" class="form-control" id="suffixname">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Age</label>
+            <input type="text" name="age" class="form-control" id="age">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Address</label>
+            <input type="text" name="address" class="form-control" id="address">
+          </div>
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
   </body>
 </html>

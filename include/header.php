@@ -14,6 +14,16 @@
 
     <title> AICS INFORMATION SYSTEM </title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+
+    <style>
+
+      #btn_logout {
+        border: none;
+        outline: none;
+        background: none;
+      }
+      
+    </style>
     
   </head>
   <body>

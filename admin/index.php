@@ -10,21 +10,26 @@
     {
         header("Location: ../index.php");
     }
+
+
+    include '../include/navbar.php';
     
+
+    $last_id;
 
 
 ?>
 
-    <form action="../logout.php" method="POST"> 
-           
-        <button type="submit" name="btn_logout" class="btn btn-primary">Logout</button>
-
-    </form>
 
     <div class="container">
         <div class="row">
 
             <div class="table-responsive mt-5">
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#staticBackdrop">
+                    <i class="fa fa-user-plus"></i> Add Client
+                </button>
 
                 <table class="table table-bordered stripe" id="dataTable1" width="100%" cellspacing="0">
                     <thead>
@@ -63,7 +68,7 @@
                                             <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                             <td><?php echo htmlspecialchars($row['age']); ?> </td>
                                             <td><?php echo htmlspecialchars($row['address']); ?> </td>
-                                            <td><?php echo htmlspecialchars($row['visit_date']); ?> </td>
+                                            <td><?php echo htmlspecialchars(date ('Y-m-d H:i', strtotime($row['visit_date']))); ?> </td>
 
                                             <td width="2%">
                                                 <form action="#" method="post" target="_blank">
