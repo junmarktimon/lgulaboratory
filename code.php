@@ -138,6 +138,11 @@ if (isset($_POST['btn_add_client'])){
 
 
 
+
+
+
+
+
 //validate data
 function check_input($data)
 {

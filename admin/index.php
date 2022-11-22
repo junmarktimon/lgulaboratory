@@ -92,9 +92,9 @@
                                             <td><?php echo htmlspecialchars(date ('Y-m-d H:i', strtotime($row['visit_date']))); ?> </td>
 
                                             <td width="2%">
-                                                <form action="#" method="post" target="_blank">
-                                                    <input type="hidden" name="view_Rid" value="<?php echo htmlspecialchars($row['id']); ?>">
-                                                    <button  type="submit" name="viewR_btn" class="btn btn-info btn-circle"><i class='fas fa-eye'></i></button>
+                                                <form action="view_client.php" method="post">
+                                                    <input type="hidden" name="view_client" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                                    <button  type="submit" name="btn_view_client" class="btn btn-info btn-circle"><i class='fas fa-eye'></i></button>
                                                 </form>
                                             </td>
 
