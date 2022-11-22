@@ -182,6 +182,11 @@
 
                 <?php
 
+            }else{
+                $_SESSION['username'];
+                
+                header("Location:../404.php");
+                exit;
             }
 
                 ?>
