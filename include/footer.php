@@ -21,7 +21,7 @@
       })
     </script>
 
-
+<!-- add client modal -->
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -37,11 +37,11 @@
         <form action="../code.php" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="lname" class="form-control" id="lastname">
+            <input type="text" name="lname" class="form-control" id="lastname" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="fname" class="form-control" id="firstname">
+            <input type="text" name="fname" class="form-control" id="firstname" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
@@ -53,22 +53,24 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Age</label>
-            <input type="text" name="age" class="form-control" id="age">
+            <input type="number" name="age" class="form-control" id="age" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Address</label>
-            <input type="text" name="address" class="form-control" id="address">
+            <input type="text" name="address" class="form-control" id="address" required>
           </div>
          
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" name="btn_add_client" class="btn btn-primary">Add</button>
           </div>
         </form>
     </div>
   </div>
 </div>
+
+<!-- end modal for add client -->
 
 
   </body>

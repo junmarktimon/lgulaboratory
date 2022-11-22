@@ -24,6 +24,18 @@
     <div class="container">
         <div class="row">
 
+                <?php
+                    if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
+                        echo '<div class="p-3 mb-2 bg-success text-white" id="message"> '.htmlspecialchars($_SESSION['success']).'</div>';
+                        unset($_SESSION['success']);
+                    }
+
+                    if (isset($_SESSION['failed']) && $_SESSION['failed'] !=''){
+                        echo '<div class="p-3 mb-2 bg-danger text-white" id="message"> '.htmlspecialchars($_SESSION['failed']).'</div>';
+                        unset($_SESSION['failed']);
+                    }
+                ?>
+
             <div class="table-responsive mt-5">
 
                 <!-- Button trigger modal -->
@@ -34,7 +46,8 @@
                 <table class="table table-bordered stripe" id="dataTable1" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Seq. #</th>
+                            <th>ID #</th>
                             <th>Household #</th>
                             <th>Name</th>
                             <th>Age</th>
@@ -47,24 +60,32 @@
                     <tbody>
             
                         <?php
-                            $query = "SELECT * FROM tbl_client";
+                            $query = "SELECT * FROM tbl_client ORDER BY id DESC";
                             $query_run = mysqli_query($connection,$query);
 
                         ?>
 
 
                             <?php
+                                
+                                $seq = 1;
 
                                 if (mysqli_num_rows($query_run) > 0){
 
                                     while($row = mysqli_fetch_assoc($query_run)){
 
+                                            
+                                            $str_length = 5;
+                                            // Left padding if number < $str_length
+                                            $str_household_id = substr("000000{$row['household_id']}", -$str_length);
+
                             ?>
 
 
                                         <tr style="text-transform: capitalize;">
+                                            <td><?php echo htmlspecialchars($seq++); ?> </td>
                                             <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                            <td><?php echo htmlspecialchars($row['household_id']); ?> </td>
+                                            <td><?php echo htmlspecialchars($str_household_id); ?> </td>
                                             <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                             <td><?php echo htmlspecialchars($row['age']); ?> </td>
                                             <td><?php echo htmlspecialchars($row['address']); ?> </td>
@@ -113,7 +134,10 @@
 <script>
 
     $(document).ready(function () {
-        $('#dataTable1').DataTable();
+        $('#dataTable1').DataTable({
+            // order: [[2, 'desc']],
+        });
+        
     });
 
 </script>

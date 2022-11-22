@@ -69,6 +69,75 @@ if (isset($_POST['btn_login']))
 
 
 
+//code for adding client
+if (isset($_POST['btn_add_client'])){
+
+    $last_household_id = 1;
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $suffix = mysqli_real_escape_string($connection, check_input(strtolower($_POST['suffix'])));
+    $age = mysqli_real_escape_string($connection, check_input($_POST['age']));
+    $address = mysqli_real_escape_string($connection, check_input($_POST['address']));
+
+        $query1 = "SELECT household_id FROM tbl_client ORDER BY id DESC LIMIT 1";
+        $query_run1 = mysqli_query($connection,$query1);
+
+        if (mysqli_num_rows($query_run1) > 0){
+
+            while($row = mysqli_fetch_assoc($query_run1)){
+                
+                $last_household_id = mysqli_real_escape_string($connection, check_input($row['household_id']));
+
+            }
+
+            ++$last_household_id;
+        }
+
+
+        if (!empty($flname) || !empty($fname) || !empty($age) || !empty($address)){
+
+            $dupsql = "SELECT * FROM tbl_client WHERE (household_id = '$last_household_id' || (fname = '$fname' && mname = '$mname' && lname = '$lname'))";
+            $duprow = mysqli_query($connection, $dupsql);
+
+            if (mysqli_num_rows($duprow) > 0){
+                $_SESSION['failed'] = "Client Already Exist!";
+                header('Location: admin/index.php');
+
+            }else{
+
+
+                $query = "INSERT INTO tbl_client (household_id, lname, fname, mname, suffix, age, address) 
+                            VALUES 
+                        ('$last_household_id','$lname','$fname','$mname','$suffix','$age', '$address')";
+
+                $query_run = mysqli_query($connection, $query);
+
+
+                if ($query_run){
+
+                    $_SESSION['success'] = "Client Added Successfully!";
+                    header('Location: admin/index.php');
+
+                }else{
+
+                    $_SESSION['failed'] = "Error Adding Client!";
+                    header('Location: admin/index.php');
+                }
+            }
+        
+    }else{
+
+        $_SESSION['failed'] = "Input Box not be empty!";
+        header('Location: admin/index.php');
+
+    }
+
+}
+
+
+
+
 //validate data
 function check_input($data)
 {
