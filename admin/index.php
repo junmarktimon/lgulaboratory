@@ -52,7 +52,7 @@
                             <th>Name</th>
                             <th>Age</th>
                             <th>Address</th>
-                            <th>Date of Visit</th>
+                            <!-- <th>Date of Visit</th> -->
                             <th>View</th>
                             <th>Edit</th>
                         </tr>
@@ -89,11 +89,12 @@
                                             <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                             <td><?php echo htmlspecialchars($row['age']); ?> </td>
                                             <td><?php echo htmlspecialchars($row['address']); ?> </td>
-                                            <td><?php echo htmlspecialchars(date ('Y-m-d H:i', strtotime($row['visit_date']))); ?> </td>
+                                            <!-- <td><?php //echo htmlspecialchars(date ('Y-m-d H:i', strtotime($row['visit_date']))); ?> </td> -->
 
                                             <td width="2%">
                                                 <form action="view_client.php" method="post">
                                                     <input type="hidden" name="view_client" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                                    <input type="hidden" name="view_client_name" value="<?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']. " " .$row['suffix']); ?>">
                                                     <button  type="submit" name="btn_view_client" class="btn btn-info btn-circle"><i class='fas fa-eye'></i></button>
                                                 </form>
                                             </td>

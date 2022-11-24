@@ -73,5 +73,65 @@
 <!-- end modal for add client -->
 
 
+
+<!-- add member modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="../code.php" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" name="lname" class="form-control" id="lastname" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" name="fname" class="form-control" id="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Middle Name</label>
+            <input type="text" name="mname" class="form-control" id="middlename">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Suffix Name</label>
+            <input type="text" name="suffix" class="form-control" id="suffixname">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Year Level</label>
+            <select class="form-control" id="input_select" name="relation">
+                <option>-- select -- </option>
+                <option value="1">Daughter</option>
+                <option value="4">Nephew</option>
+                <option value="4">Niece</option>
+                <option value="2">Son</option>
+                <option value="3">Wife</option>
+                <option value="4">Step-father</option>
+                <option value="5">Step-mother</option>
+                <option value="6">Brother-in-law</option>
+                <option value="6">Sister-in-law</option>
+            </select>
+          </div>
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="btn_add_client" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for add member -->
+
+
   </body>
 </html>
