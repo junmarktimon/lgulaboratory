@@ -84,7 +84,6 @@
         <form action="../code.php" method="post">
 
             <input type="hidden" class="form-control" id="editInput_family_id" name="view_client">
-            <input type="hidden" class="form-control" id="editInput_family_name" name="view_client_name">
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
@@ -135,6 +134,93 @@
 
 
 
+
+<!-- add services modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="../code.php" method="post">
+
+            <input type="text" class="form-control" id="editInput_family_id1" name="view_client">
+
+              <!-- query for course or section -->
+                <?php
+                 $query = "SELECT * FROM tbl_household_member";
+                 $query_run = mysqli_query($connection,$query);
+
+              ?>
+
+                <!-- Input Fields -->
+                <div class="form-group">
+                    <label>Name</label>
+                        <select name="section" class="form-control" required>
+                            <option selected disabled value="">-- Select --</option>
+                            
+
+                                <?php
+
+                            if (mysqli_num_rows($query_run) > 0) {
+                                while ($row = mysqli_fetch_assoc($query_run)) {
+                                ?>
+
+                                    <option value="<?php echo $row['id'];?>"> <?php echo $row['lname'] . " " . $row['fname'] . " " . $row['mname'] . " " . $row['suffix'];?> </option>
+
+
+                                  <?php
+                                }
+                            }
+                                    ?>
+
+                        </select>
+                </div>
+             <!-- end query for course or section -->
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Services</label>
+            <select class="form-control" id="input_select" name="relation" required>
+                <option>-- select -- </option>
+                <option value="brother">Brother</option>
+                <option value="daughter">Daughter</option>
+                <option value="husband">Husband</option>
+                <option value="nephew">Nephew</option>
+                <option value="niece">Niece</option>
+                <option value="son">Son</option>
+                <option value="wife">Wife</option>
+                <option value="sister">Sister</option>
+                <option value="step-father">Step-father</option>
+                <option value="step-mother">Step-mother</option>
+                <option value="brother-in-law">Brother-in-law</option>
+                <option value="sister-in-law">Sister-in-law</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Amount</label>
+            <input type="number" name="amount" class="form-control" id="amount">
+          </div>
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="btn_add_member" class="btn btn-primary">Add Services</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for add services -->
+
+
+
 <script>
       // error meesage fadeOut
       $('document').ready(function(){ 
@@ -147,10 +233,19 @@
         $(document).on('click', '#add_member', function(){
                             
             var id = $(this).data('id1');
-            var name = $(this).data('id2');
 
             document.getElementById("editInput_family_id").value = id;
-            document.getElementById("editInput_family_name").value = name;
+
+        });
+
+        //get user id for specific add services using jquery and by calling input or button id
+        //add services
+        $(document).on('click', '#add_services', function(){
+                            
+            var id1 = $(this).data('id3');
+
+            document.getElementById("editInput_family_id1").value = id1;
+
         });
 
 

@@ -54,7 +54,7 @@
                             ?>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary mb-5 mt-5" id="add_member" data-toggle="modal" data-target="#staticBackdrop2" data-id1="<?php echo htmlspecialchars($client_id); ?>" data-id2="<?php echo htmlspecialchars($client_name); ?>">
+                            <button type="button" class="btn btn-primary mb-5 mt-5" id="add_member" data-toggle="modal" data-target="#staticBackdrop2" data-id1="<?php echo htmlspecialchars($client_id); ?>" >
                                 <i class="fa fa-user-plus"></i> Add Member
                             </button>
 
@@ -133,6 +133,12 @@
                         <div class="col-1"></div>
 
                         <div class="col-5 border">
+
+                                <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary mb-5 mt-5" id="add_services" data-toggle="modal" data-target="#staticBackdrop3" data-id3="<?php echo htmlspecialchars($client_id); ?>" >
+                                <i class="fa fa-user-plus"></i> Add Services
+                            </button>
+
                                 <h1 class="text-center mt-3"> Served Services List</h1>
                             <div class="table-responsive mt-5">
                                 <table class="table table-bordered stripe" id="dataTable3" width="100%" cellspacing="0">
@@ -151,7 +157,12 @@
                                     <tbody> 
                                         
                                         <?php
-                                            $query1 = "SELECT tbl_client.lname AS CLNAME, tbl_client.fname AS CFNAME, tbl_client.mname AS CMNAME, tbl_client.suffix AS CSUFFIX, tbl_household_member.lname AS MLNAME, tbl_household_member.fname AS MFNAME, tbl_household_member.mname AS MMNAME, tbl_household_member.suffix AS MSUFFIX, tbl_services.id AS SID, tbl_services.client_id AS SCID, tbl_services.member_id AS MID, tbl_services.services, tbl_services.amount, tbl_services.date_created  FROM tbl_client INNER JOIN tbl_household_member ON tbl_client.id = tbl_household_member.head_family_id INNER JOIN tbl_services ON tbl_client.id = tbl_services.client_id WHERE tbl_client.id = '$client_id' ORDER BY tbl_services.id DESC";
+                                            $query1 = "SELECT tbl_client.lname AS CLNAME, tbl_client.fname AS CFNAME, tbl_client.mname AS CMNAME, tbl_client.suffix AS CSUFFIX, tbl_household_member.lname AS MLNAME, 
+                                            tbl_household_member.fname AS MFNAME, tbl_household_member.mname AS MMNAME, tbl_household_member.suffix AS MSUFFIX, 
+                                            tbl_services.id AS SID, tbl_services.client_id AS SCID, tbl_services.member_id AS MID, tbl_services.services, tbl_services.amount, tbl_services.date_created  
+                                            FROM tbl_client INNER JOIN tbl_household_member ON tbl_client.id = tbl_household_member.head_family_id 
+                                            INNER JOIN tbl_services ON tbl_client.id = tbl_services.client_id 
+                                            WHERE tbl_client.id = '$client_id' AND tbl_services.client_id = '$client_id' GROUP BY tbl_services.date_created ORDER BY tbl_services.id DESC";
                                             $query_run1 = mysqli_query($connection,$query1);
 
                                         ?>
@@ -176,11 +187,13 @@
 
                                                                     if($row1['MID'] == $client_id and $row1['SCID'] == $client_id){
 
-                                                                        echo htmlspecialchars($row1['CLNAME'] . " " . $row1['CFNAME'] . " " . $row1['CMNAME'] . " " . $row1['CSUFFIX']); 
+                                                                        echo htmlspecialchars($row1['CLNAME'] . " " . $row1['CFNAME'] . " " . $row1['CMNAME'] . " " . $row1['CSUFFIX']);
+
                                                                     
                                                                     }else{
 
                                                                         echo htmlspecialchars($row1['MLNAME'] . " " . $row1['MFNAME'] . " " . $row1['MMNAME'] . " " . $row1['MSUFFIX']); 
+
 
                                                                     }
 
