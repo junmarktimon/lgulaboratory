@@ -139,6 +139,62 @@ if (isset($_POST['btn_add_client'])){
 
 
 
+//code for adding member
+if (isset($_POST['btn_add_member'])){
+
+    $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
+    $family_name = mysqli_real_escape_string($connection, check_input($_POST['view_client_name']));
+    $mlname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mlname'])));
+    $mfname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mfname'])));
+    $mmname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mmname'])));
+    $msuffix = mysqli_real_escape_string($connection, check_input(strtolower($_POST['msuffix'])));
+    $relation = mysqli_real_escape_string($connection, check_input($_POST['relation']));
+
+        if (!empty($flname) || !empty($fname) || !empty($relation)){
+
+            $dupsql = "SELECT * FROM tbl_household_member WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname'";
+            $duprow = mysqli_query($connection, $dupsql);
+
+            if (mysqli_num_rows($duprow) > 0){
+
+                $_SESSION['failed'] = "Member Already Exist!";
+                header('Location:admin/view_client.php?view_client='.$family_id);
+
+            }else{
+
+
+                $query = "INSERT INTO tbl_household_member (head_family_id, lname, fname, mname, suffix, client_relation) 
+                            VALUES 
+                        ('$family_id','$mlname','$mfname','$mmname','$msuffix','$relation')";
+
+                $query_run = mysqli_query($connection, $query);
+
+
+                if ($query_run){
+
+                    $_SESSION['success'] = "Member Added Successfully!";
+                    header('Location: admin/view_client.php?view_client='.$family_id);
+
+                }else{
+
+                    $_SESSION['failed'] = "Error Adding Member!";
+                    header('Location: admin/view_client.php?view_client='.$family_id);
+                }
+            }
+        
+    }else{
+
+        $_SESSION['failed'] = "Input Box not be empty!";
+        header('Location: admin/view_client.php?view_client='.$family_id);
+
+    }
+
+}
+
+
+
+
+
 
 
 

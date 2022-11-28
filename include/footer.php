@@ -14,12 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
-    <script>
-      // error meesage fadeOut
-      $('document').ready(function(){ 
-        $("#message").fadeIn(1000).fadeOut(5000); 
-      })
-    </script>
 
 <!-- add client modal -->
 <!-- Modal -->
@@ -88,42 +82,49 @@
       <div class="modal-body">
 
         <form action="../code.php" method="post">
+
+            <input type="hidden" class="form-control" id="editInput_family_id" name="view_client">
+            <input type="hidden" class="form-control" id="editInput_family_name" name="view_client_name">
+
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="lname" class="form-control" id="lastname" required>
+            <input type="text" name="mlname" class="form-control" id="lastname" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="fname" class="form-control" id="firstname" required>
+            <input type="text" name="mfname" class="form-control" id="firstname" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mname" class="form-control" id="middlename">
+            <input type="text" name="mmname" class="form-control" id="middlename">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="suffix" class="form-control" id="suffixname">
+            <input type="text" name="msuffix" class="form-control" id="suffixname">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Year Level</label>
-            <select class="form-control" id="input_select" name="relation">
+            <label for="exampleFormControlSelect1">Relation</label>
+            <select class="form-control" id="input_select" name="relation" required>
                 <option>-- select -- </option>
-                <option value="1">Daughter</option>
-                <option value="4">Nephew</option>
-                <option value="4">Niece</option>
-                <option value="2">Son</option>
-                <option value="3">Wife</option>
-                <option value="4">Step-father</option>
-                <option value="5">Step-mother</option>
-                <option value="6">Brother-in-law</option>
-                <option value="6">Sister-in-law</option>
+                <option value="brother">Brother</option>
+                <option value="daughter">Daughter</option>
+                <option value="husband">Husband</option>
+                <option value="nephew">Nephew</option>
+                <option value="niece">Niece</option>
+                <option value="son">Son</option>
+                <option value="wife">Wife</option>
+                <option value="sister">Sister</option>
+                <option value="step-father">Step-father</option>
+                <option value="step-mother">Step-mother</option>
+                <option value="brother-in-law">Brother-in-law</option>
+                <option value="sister-in-law">Sister-in-law</option>
             </select>
           </div>
          
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="btn_add_client" class="btn btn-primary">Add</button>
+            <button type="submit" name="btn_add_member" class="btn btn-primary">Add</button>
           </div>
         </form>
     </div>
@@ -131,6 +132,29 @@
 </div>
 
 <!-- end modal for add member -->
+
+
+
+<script>
+      // error meesage fadeOut
+      $('document').ready(function(){ 
+        $("#message").fadeIn(1000).fadeOut(5000); 
+      });
+
+
+      //get user id for specific add member using jquery and by calling input or button id
+        //add memeber
+        $(document).on('click', '#add_member', function(){
+                            
+            var id = $(this).data('id1');
+            var name = $(this).data('id2');
+
+            document.getElementById("editInput_family_id").value = id;
+            document.getElementById("editInput_family_name").value = name;
+        });
+
+
+    </script>
 
 
   </body>
