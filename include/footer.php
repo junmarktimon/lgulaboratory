@@ -238,16 +238,6 @@
 
         });
 
-        //get user id for specific add services using jquery and by calling input or button id
-        //add services
-        $(document).on('click', '#add_services', function(){
-                            
-            var id1 = $(this).data('id3');
-
-            document.getElementById("editInput_family_id1").value = id1;
-
-        });
-
 
     </script>
 
