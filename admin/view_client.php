@@ -130,6 +130,7 @@
                                 <input type="hidden" name="edit_services_client_id" value="<?php echo htmlspecialchars($client_id); ?>">
                                 <button  type="submit" name="btn_addservices" class="btn btn-primary mb-5 mt-5"><i class="fas fa-user-edit"></i> Add Services</button>
                             </form>
+                      
 
                                 <h1 class="text-center mt-3"> Served Services List</h1>
                             <div class="table-responsive mt-5">
