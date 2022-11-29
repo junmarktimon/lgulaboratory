@@ -35,68 +35,66 @@
             <form>
                 <input type="text" class="form-control" id="editInput_family_id1" name="view_client" value="<?php echo htmlspecialchars($services_client_id); ?>">
 
-                <!-- query for course or section -->
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Member</label>
+                    <select class="form-control" id="myselection">
+                        <option>--select--</option>
+                        <option value="1"> Head Of Family </option>
+                        <option value="2"> Member OF Family </option>
+                    </select>
+                </div>
+
+
                 <?php
-                // $query = "SELECT tbl_client.id AS ID, tbl_client.lname AS CLNAME, tbl_client.fname AS CFNAME, tbl_client.mname AS CMNAME, tbl_client.suffix AS CSUFFIX, tbl_household_member.lname AS MLNAME, 
-                // tbl_household_member.head_family_id AS HMHFID, tbl_household_member.fname AS MLNAME, tbl_household_member.fname AS MFNAME, tbl_household_member.mname AS MMNAME, tbl_household_member.suffix AS MSUFFIX  
-                // FROM tbl_client INNER JOIN tbl_household_member ON tbl_client.id = tbl_household_member.head_family_id 
-                // WHERE tbl_client.id = '$services_client_id' AND tbl_household_member.head_family_id = '$services_client_id'";
-                $query = "SELECT tbl_client.id AS ID, tbl_client.lname AS CLNAME, tbl_client.fname AS CFNAME, tbl_client.mname AS CMNAME, tbl_client.suffix AS CSUFFIX, tbl_client.date_created AS CDCREATED,
-                tbl_household_member.head_family_id AS HMHFID, tbl_household_member.lname AS MLNAME,  tbl_household_member.fname AS MFNAME, tbl_household_member.mname AS MMNAME, tbl_household_member.suffix AS MSUFFIX, tbl_household_member.date_created AS MDCREATED  
-                FROM tbl_client INNER JOIN tbl_household_member ON tbl_client.id = tbl_household_member.head_family_id 
-                WHERE tbl_client.id = '$services_client_id' AND tbl_household_member.head_family_id = '$services_client_id' GROUP BY tbl_household_member.date_created;";
-                $query_run = mysqli_query($connection,$query);
+
+                    $query= "SELECT * FROM tbl_client WHERE id = '$services_client_id' LIMIT 1";
+                    $query_run = mysqli_query($connection,$query);
 
                 ?>
 
-                <!-- Input Fields -->
-                <div class="form-group">
-                    <label>Name</label>
-                        <select name="section" class="form-control" required>
-                            <option selected disabled value="">-- Select --</option>
-                            
-
-                                        <?php
-
+                <div class="form-group mydiv" id="mySelectOption1">
+                    <label for="exampleFormControlSelect1">Client</label>
+                    <select class="form-control">
+                                    <?php
                             if (mysqli_num_rows($query_run) > 0) {
                                 while ($row = mysqli_fetch_assoc($query_run)) {
-                            
+                                    ?>
 
-                                    if($row['ID'] == $services_client_id and $row['HMHFID'] == $services_client_id){
-
-
-                                        ?>
-
-                                        <option value="<?php echo htmlspecialchars($row['ID']);?>"> <?php echo htmlspecialchars($row['CLNAME']) . " " . htmlspecialchars($row['CFNAME']) . " " . htmlspecialchars($row['CMNAME']) . " " . htmlspecialchars($row['CSUFFIX']);?> </option>
-
-                                        <?php
-
-                                    }else{
-
-
-
-                                        ?>
-
-                                       
-                                        <option value="<?php echo htmlspecialchars($row['HMHFID']);?>"> <?php echo htmlspecialchars($row['MLNAME']) . " " . htmlspecialchars($row['MFNAME']) . " " . htmlspecialchars($row['MMNAME']) . " " . htmlspecialchars($row['MSUFFIX']);?> </option>
-
-                                        <?php
-
-                                    }
-
-                                        ?> 
-
-                                    
-
+                                    <option value="<?php echo htmlspecialchars($row['id']);?>"> <?php echo htmlspecialchars($row['lname']) . " " . htmlspecialchars($row['fname']) . " " . htmlspecialchars($row['mname']) . " " . htmlspecialchars($row['suffix']);?> </option>
 
                                     <?php
                                 }
                             }
                                     ?>
-
-                        </select>
+                    </select>
                 </div>
-                <!-- end query for course or section -->
+
+                <?php
+
+                    $query1= "SELECT * FROM tbl_household_member WHERE head_family_id = '$services_client_id'";
+                    $query_run1 = mysqli_query($connection,$query1);
+
+                ?>
+
+                <div class="form-group mydiv" id="mySelectOption2">
+                    <label for="exampleFormControlSelect1">Member</label>
+                    <select class="form-control">
+                        <option>--select--</option>
+                        <?php
+                            if (mysqli_num_rows($query_run1) > 0) {
+                                while ($row1 = mysqli_fetch_assoc($query_run1)) {
+                                    ?>
+
+                                    <option value="<?php echo htmlspecialchars($row1['id']);?>"> <?php echo htmlspecialchars($row1['lname']) . " " . htmlspecialchars($row1['fname']) . " " . htmlspecialchars($row1['mname']) . " " . htmlspecialchars($row1['suffix']);?> </option>
+
+                                    <?php
+                                }
+                            }
+                                    ?>
+                    </select>
+                </div>
+
+                
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1">
@@ -120,5 +118,17 @@
     include('../include/footer.php');
 
 ?>
+
+
+<script>
+
+    $(document).ready(function(){
+    $('#myselection').on('change', function(){
+    	var demovalue = $(this).val(); 
+        $("div.mydiv").hide();
+        $("#mySelectOption"+demovalue).show();
+    });
+});
+</script>
 
 

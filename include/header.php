@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     
     <title> AICS INFORMATION SYSTEM </title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
 
@@ -21,6 +23,13 @@
         border: none;
         outline: none;
         background: none;
+      }
+
+      /* select option for client or member */
+      .mydiv{
+         display:none;
+          padding:10px;
+          margin-top:20px;
       }
       
     </style>
