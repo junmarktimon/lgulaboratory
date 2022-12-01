@@ -135,6 +135,129 @@
 
 
 
+<!-- update client modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update Client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="../code.php" method="post">
+
+        <input type="text" class="form-control" id="editInput_client_id"  name="edit_client">
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" name="lname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" name="fname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Middle Name</label>
+            <input type="text" name="mname" class="form-control" id="middlename" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Suffix Name</label>
+            <input type="text" name="suffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Age</label>
+            <input type="number" name="age" class="form-control" id="age" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Address</label>
+            <input type="text" name="address" class="form-control" id="address" style="text-transform: uppercase;" required>
+          </div>
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="btn_add_client" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for update client -->
+
+
+
+<!-- update member modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop4" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update Member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="../code.php" method="post">
+
+            <input type="hidden" class="form-control" id="editInput_family_id" name="view_client">
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" name="mlname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" name="mfname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Middle Name</label>
+            <input type="text" name="mmname" class="form-control" id="middlename" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Suffix Name</label>
+            <input type="text" name="msuffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Relation</label>
+            <select class="form-control" id="input_select" name="relation" style="text-transform: uppercase;" required>
+                <option>-- select -- </option>
+                <option value="brother">Brother</option>
+                <option value="daughter">Daughter</option>
+                <option value="husband">Husband</option>
+                <option value="nephew">Nephew</option>
+                <option value="niece">Niece</option>
+                <option value="son">Son</option>
+                <option value="wife">Wife</option>
+                <option value="sister">Sister</option>
+                <option value="step-father">Step-father</option>
+                <option value="step-mother">Step-mother</option>
+                <option value="brother-in-law">Brother-in-law</option>
+                <option value="sister-in-law">Sister-in-law</option>
+            </select>
+          </div>
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="btn_add_member" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for update member -->
+
+
+
+
 
 
 
@@ -152,6 +275,17 @@
             var id = $(this).data('id1');
 
             document.getElementById("editInput_family_id").value = id;
+
+        });
+
+
+        //get user id for specific add member using jquery and by calling input or button id
+        //add memeber
+        $(document).on('click', '#edit_client', function(){
+                            
+            var id = $(this).data('id1');
+
+            document.getElementById("editInput_client_id").value = id;
 
         });
 

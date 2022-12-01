@@ -96,14 +96,14 @@
                                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
                                                             <td><?php echo htmlspecialchars($row['id']); ?> </td>
                                                             <td><?php echo htmlspecialchars($row['head_family_id']); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['relation']); ?> </td>
+                                                            <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
+                                                            <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['relation']); ?> </td>
 
                                                             <td width="2%">
-                                                                <form action="" method="post">
-                                                                    <input type="hidden" name="edit_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                                                                    <button  type="submit" name="edit_btn" class="btn btn-success btn-circle"><i class="fas fa-user-edit"></i></button>
-                                                                </form>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-success btn-circle"  id="edit_member" data-toggle="modal" data-target="#staticBackdrop4" data-id1="<?php echo htmlspecialchars($row['id']); ?>" >
+                                                                    <i class="fas fa-user-edit"></i> 
+                                                                </button>
                                                             </td>
 
                                                         </tr>
@@ -148,12 +148,6 @@
                                     <tbody> 
                                         
                                         <?php
-                                            // $query1 = "SELECT tbl_client.lname AS CLNAME, tbl_client.fname AS CFNAME, tbl_client.mname AS CMNAME, tbl_client.suffix AS CSUFFIX, tbl_household_member.lname AS MLNAME, 
-                                            // tbl_household_member.fname AS MFNAME, tbl_household_member.mname AS MMNAME, tbl_household_member.suffix AS MSUFFIX, 
-                                            // tbl_services.id AS SID, tbl_services.client_id AS SCID, tbl_services.member_id AS MID, tbl_services.services, tbl_services.amount, tbl_services.date_created  
-                                            // FROM tbl_client INNER JOIN tbl_household_member ON tbl_client.id = tbl_household_member.head_family_id 
-                                            // INNER JOIN tbl_services ON tbl_client.id = tbl_services.client_id 
-                                            // WHERE tbl_client.id = '$client_id' AND tbl_services.client_id = '$client_id' GROUP BY tbl_services.date_created ORDER BY tbl_services.id DESC";
                                             $query1 = "SELECT tbl_client.id AS ID, tbl_client.lname, tbl_client.fname, tbl_client.mname, tbl_client.suffix, tbl_client.head_family_id, tbl_client.relation,
                                             tbl_services.id AS SID, tbl_services.client_id, tbl_services.member_id, tbl_services.services, tbl_services.amount, tbl_services.date_created
                                             FROM tbl_client 
@@ -175,14 +169,11 @@
                                             ?>
 
 
-                                                        <tr style="text-transform: capitalize;">
+                                                        <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq1++); ?> </td>
                                                             <td><?php echo htmlspecialchars($row1['SID']); ?> </td>
                                                             <td>
                                                                 <?php
-                                                                    // if($row1['tbl_services.member_id'] == $client_id){
-
-                                                                    // }
                                                                      echo htmlspecialchars($row1['lname'] . " " . $row1['fname'] . " " . $row1['mname'] . " " . $row1['suffix']); 
                                                                 ?> 
                                                             </td>
@@ -250,7 +241,7 @@
                             </button>
 
                                 <h1 class="text-center mt-1"> Family Member List</h1>
-                                <!-- <h3 class="text-center mt-1"> (<?php //echo strtoupper($client_name); ?>) </h3> -->
+                                
                             <div class="table-responsive mt-5">
                                 <table class="table table-bordered stripe" id="dataTable2" width="100%" cellspacing="0">
                                     <thead>
@@ -283,7 +274,7 @@
                                             ?>
 
 
-                                                        <tr style="text-transform: capitalize;">
+                                                        <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
                                                             <td><?php echo htmlspecialchars($row['id']); ?> </td>
                                                             <td><?php echo htmlspecialchars($row['head_family_id']); ?> </td>
@@ -291,10 +282,10 @@
                                                             <td><?php echo htmlspecialchars($row['relation']); ?> </td>
 
                                                             <td width="2%">
-                                                                <form action="" method="post">
-                                                                    <input type="hidden" name="edit_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                                                                    <button  type="submit" name="edit_btn" class="btn btn-success btn-circle"><i class="fas fa-user-edit"></i></button>
-                                                                </form>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-success btn-circle"  id="edit_member" data-toggle="modal" data-target="#staticBackdrop4" data-id1="<?php echo htmlspecialchars($row['id']); ?>" >
+                                                                    <i class="fas fa-user-edit"></i> 
+                                                                </button>
                                                             </td>
 
                                                         </tr>
@@ -360,7 +351,7 @@
                                             ?>
 
 
-                                                        <tr style="text-transform: capitalize;">
+                                                        <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq1++); ?> </td>
                                                             <td><?php echo htmlspecialchars($row1['SID']); ?> </td>
                                                             <td>

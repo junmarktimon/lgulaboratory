@@ -78,9 +78,9 @@
                                         <tr style="text-transform: capitalize;">
                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
                                             <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                            <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
+                                            <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                             <td><?php echo htmlspecialchars($row['age']); ?> </td>
-                                            <td><?php echo htmlspecialchars($row['address']); ?> </td>
+                                            <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['address']); ?> </td>
 
                                             <td width="2%">
                                                 <form action="view_client.php" method="post">
@@ -91,10 +91,10 @@
                                             </td>
 
                                             <td width="2%">
-                                                <form action="#" method="post">
-                                                    <input type="hidden" name="edit_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                                                    <button  type="submit" name="edit_btn" class="btn btn-success btn-circle"><i class="fas fa-user-edit"></i></button>
-                                                </form>
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-success btn-circle"  id="edit_client" data-toggle="modal" data-target="#staticBackdrop3" data-id1="<?php echo htmlspecialchars($row['id']); ?>" >
+                                                    <i class="fas fa-user-edit"></i> 
+                                                </button>
                                             </td>
 
                                         </tr>
