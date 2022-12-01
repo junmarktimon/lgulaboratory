@@ -31,19 +31,19 @@
         <form action="../code.php" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="lname" class="form-control" id="lastname" required>
+            <input type="text" name="lname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="fname" class="form-control" id="firstname" required>
+            <input type="text" name="fname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mname" class="form-control" id="middlename">
+            <input type="text" name="mname" class="form-control" id="middlename" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="suffix" class="form-control" id="suffixname">
+            <input type="text" name="suffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Age</label>
@@ -51,7 +51,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Address</label>
-            <input type="text" name="address" class="form-control" id="address" required>
+            <input type="text" name="address" class="form-control" id="address" style="text-transform: uppercase;" required>
           </div>
          
           </div>
@@ -87,23 +87,23 @@
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="mlname" class="form-control" id="lastname" required>
+            <input type="text" name="mlname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="mfname" class="form-control" id="firstname" required>
+            <input type="text" name="mfname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mmname" class="form-control" id="middlename">
+            <input type="text" name="mmname" class="form-control" id="middlename" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="msuffix" class="form-control" id="suffixname">
+            <input type="text" name="msuffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Relation</label>
-            <select class="form-control" id="input_select" name="relation" required>
+            <select class="form-control" id="input_select" name="relation" style="text-transform: uppercase;" required>
                 <option>-- select -- </option>
                 <option value="brother">Brother</option>
                 <option value="daughter">Daughter</option>
@@ -134,6 +134,10 @@
 
 
 
+
+
+
+
 <script>
       // error meesage fadeOut
       $('document').ready(function(){ 
@@ -150,7 +154,6 @@
             document.getElementById("editInput_family_id").value = id;
 
         });
-
 
     </script>
 

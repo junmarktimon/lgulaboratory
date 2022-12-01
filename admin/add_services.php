@@ -24,8 +24,6 @@
 
         $services_client_id = mysqli_real_escape_string($connection, check_input($_POST['edit_services_client_id']));
 
-    }
-
 ?>
 
 <div class="container mt-5">
@@ -34,34 +32,29 @@
         <div class="col-4 mt-5 bg-light border border-light rounded">
             <h3 class="text-center mt-5"> Add Services</h3>
             <form class="mt-5" action="../code.php" method="post">
+
                 <input type="hidden" class="form-control" id="editInput_family_id1" name="view_client" value="<?php echo htmlspecialchars($services_client_id); ?>">
 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Select Member</label>
-                    <select class="form-control" id="myselection">
-                        <option>--select--</option>
-                        <option value="1"> Head Of Family </option>
-                        <option value="2"> Member OF Family </option>
-                    </select>
-                </div>
 
 
                 <?php
 
-                    $query= "SELECT * FROM tbl_client WHERE id = '$services_client_id' LIMIT 1";
+                    $query= "SELECT * FROM tbl_client WHERE head_family_id = '$services_client_id' || id = '$services_client_id'";
                     $query_run = mysqli_query($connection,$query);
 
                 ?>
 
-                <div class="form-group mydiv" id="mySelectOption1">
-                    <label for="exampleFormControlSelect1">Client</label>
-                    <select class="form-control" name="client">
+                <div class="form-group" >
+                    <label for="exampleFormControlSelect1">Name</label>
+                    <select class="form-control" name="client_or_member" required>
+                        <option selected disabled value=""> -- SELECT -- </option>
+
                                     <?php
                             if (mysqli_num_rows($query_run) > 0) {
                                 while ($row = mysqli_fetch_assoc($query_run)) {
                                     ?>
 
-                                    <option selected value="<?php echo htmlspecialchars($row['id']);?>"> <?php echo htmlspecialchars($row['lname']) . " " . htmlspecialchars($row['fname']) . " " . htmlspecialchars($row['mname']) . " " . htmlspecialchars($row['suffix']);?> </option>
+                                    <option value="<?php echo htmlspecialchars($row['id']);?>" style="text-transform: uppercase;"> <?php echo htmlspecialchars($row['lname']) . " " . htmlspecialchars($row['fname']) . " " . htmlspecialchars($row['mname']) . " " . htmlspecialchars($row['suffix']);?> </option>
 
                                     <?php
                                 }
@@ -70,35 +63,11 @@
                     </select>
                 </div>
 
-                <?php
-
-                    $query1= "SELECT * FROM tbl_household_member WHERE head_family_id = '$services_client_id'";
-                    $query_run1 = mysqli_query($connection,$query1);
-
-                ?>
-
-                <div class="form-group mydiv" id="mySelectOption2">
-                    <label for="exampleFormControlSelect1">Member</label>
-                    <select class="form-control" name="member">
-                        <option value="--select--">--select--</option>
-                        <?php
-                            if (mysqli_num_rows($query_run1) > 0) {
-                                while ($row1 = mysqli_fetch_assoc($query_run1)) {
-                                    ?>
-
-                                    <option value="<?php echo htmlspecialchars($row1['id']);?>"> <?php echo htmlspecialchars($row1['lname']) . " " . htmlspecialchars($row1['fname']) . " " . htmlspecialchars($row1['mname']) . " " . htmlspecialchars($row1['suffix']);?> </option>
-
-                                    <?php
-                                }
-                            }
-                                    ?>
-                    </select>
-                </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Select Services</label>
-                    <select class="form-control" id="myselection" name="services">
-                        <option>--select--</option>
+                    <select class="form-control" name="services" required>
+                        <option selected disabled value=""> -- SELECT -- </option>
                         <option value="CBC"> CBC </option>
                         <option value="URINALYSIS"> URINALYSIS </option>
                         <option value="FECALYSIS"> FECALYSIS </option>
@@ -161,7 +130,7 @@
                 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Amount</label>
-                    <input type="number" class="form-control" name="amount">
+                    <input type="number" class="form-control" name="amount" required>
                 </div>
                
                 <button type="submit" name="btn_add_services" class="btn btn-primary float-right mb-5">Add</button>
@@ -170,6 +139,12 @@
         <div class="col-4"></div>
     </div>
 </div>
+
+<?php
+
+                        }
+
+    ?>
 
 
 
@@ -181,15 +156,5 @@
 ?>
 
 
-<script>
-
-    $(document).ready(function(){
-    $('#myselection').on('change', function(){
-    	var demovalue = $(this).val(); 
-        $("div.mydiv").hide();
-        $("#mySelectOption"+demovalue).show();
-    });
-});
-</script>
 
 

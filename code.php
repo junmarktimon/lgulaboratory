@@ -72,7 +72,6 @@ if (isset($_POST['btn_login']))
 //code for adding client
 if (isset($_POST['btn_add_client'])){
 
-    $last_household_id = 1;
     $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
     $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
     $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
@@ -80,24 +79,10 @@ if (isset($_POST['btn_add_client'])){
     $age = mysqli_real_escape_string($connection, check_input($_POST['age']));
     $address = mysqli_real_escape_string($connection, check_input($_POST['address']));
 
-        $query1 = "SELECT household_id FROM tbl_client ORDER BY id DESC LIMIT 1";
-        $query_run1 = mysqli_query($connection,$query1);
-
-        if (mysqli_num_rows($query_run1) > 0){
-
-            while($row = mysqli_fetch_assoc($query_run1)){
-                
-                $last_household_id = mysqli_real_escape_string($connection, check_input($row['household_id']));
-
-            }
-
-            ++$last_household_id;
-        }
-
 
         if (!empty($flname) || !empty($fname) || !empty($age) || !empty($address)){
 
-            $dupsql = "SELECT * FROM tbl_client WHERE (household_id = '$last_household_id' || (fname = '$fname' && mname = '$mname' && lname = '$lname'))";
+            $dupsql = "SELECT * FROM tbl_client WHERE (fname = '$fname' && mname = '$mname' && lname = '$lname')";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -107,9 +92,9 @@ if (isset($_POST['btn_add_client'])){
             }else{
 
 
-                $query = "INSERT INTO tbl_client (household_id, lname, fname, mname, suffix, age, address) 
+                $query = "INSERT INTO tbl_client (lname, fname, mname, suffix, age, address) 
                             VALUES 
-                        ('$last_household_id','$lname','$fname','$mname','$suffix','$age', '$address')";
+                        ('$lname','$fname','$mname','$suffix','$age', '$address')";
 
                 $query_run = mysqli_query($connection, $query);
 
@@ -143,7 +128,6 @@ if (isset($_POST['btn_add_client'])){
 if (isset($_POST['btn_add_member'])){
 
     $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
-    $family_name = mysqli_real_escape_string($connection, check_input($_POST['view_client_name']));
     $mlname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mlname'])));
     $mfname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mfname'])));
     $mmname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mmname'])));
@@ -152,7 +136,7 @@ if (isset($_POST['btn_add_member'])){
 
         if (!empty($flname) || !empty($fname) || !empty($relation)){
 
-            $dupsql = "SELECT * FROM tbl_household_member WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname'";
+            $dupsql = "SELECT * FROM tbl_client WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname'";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -163,9 +147,9 @@ if (isset($_POST['btn_add_member'])){
             }else{
 
 
-                $query = "INSERT INTO tbl_household_member (head_family_id, lname, fname, mname, suffix, client_relation) 
+                $query = "INSERT INTO tbl_client (lname, fname, mname, suffix, head_family_id, age, relation, address) 
                             VALUES 
-                        ('$family_id','$mlname','$mfname','$mmname','$msuffix','$relation')";
+                        ('$mlname','$mfname','$mmname','$msuffix','$family_id','0','$relation','')";
 
                 $query_run = mysqli_query($connection, $query);
 
@@ -198,38 +182,15 @@ if (isset($_POST['btn_add_member'])){
 if (isset($_POST['btn_add_services'])){
 
     $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
-    $client_id = mysqli_real_escape_string($connection, check_input($_POST['client']));
-    $member_id = mysqli_real_escape_string($connection, check_input(strtolower($_POST['member'])));
+    $client_or_member_id = mysqli_real_escape_string($connection, check_input(strtolower($_POST['client_or_member'])));
     $services = mysqli_real_escape_string($connection, check_input(strtolower($_POST['services'])));
     $amount = mysqli_real_escape_string($connection, check_input(strtolower($_POST['amount'])));
 
-        if (!empty($client_id) || !empty($member_id)){
-
-            if($member_id == '--select--'){
+        if (!empty($client_or_member_id) || !empty($services)){
 
                 $query = "INSERT INTO tbl_services (client_id, member_id, services, amount) 
                             VALUES 
-                        ('$client_id','$client_id','$services','$amount')";
-
-                $query_run = mysqli_query($connection, $query);
-
-
-                if ($query_run){
-
-                    $_SESSION['success'] = "Member Added Successfully!";
-                    header('Location: admin/view_client.php?view_client='.$family_id);
-
-                }else{
-
-                    $_SESSION['failed'] = "Error Adding Member!";
-                    header('Location: admin/view_client.php?view_client='.$family_id);
-                }
-
-            }else{
-
-                $query = "INSERT INTO tbl_services (client_id, member_id, services, amount) 
-                            VALUES 
-                        ('$client_id','$member_id','$services','$amount')";
+                        ('$family_id','$client_or_member_id','$services','$amount')";
 
                 $query_run = mysqli_query($connection, $query);
 
@@ -245,7 +206,7 @@ if (isset($_POST['btn_add_services'])){
                     header('Location: admin/view_client.php?view_client='.$family_id);
                 }
         
-            }
+            
         
     }else{
 

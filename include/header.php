@@ -25,12 +25,6 @@
         background: none;
       }
 
-      /* select option for client or member */
-      .mydiv{
-         display:none;
-          padding:10px;
-          margin-top:20px;
-      }
       
     </style>
     

@@ -48,11 +48,9 @@
                         <tr>
                             <th>Seq. #</th>
                             <th>ID #</th>
-                            <th>Household #</th>
                             <th>Name</th>
                             <th>Age</th>
                             <th>Address</th>
-                            <!-- <th>Date of Visit</th> -->
                             <th>View</th>
                             <th>Edit</th>
                         </tr>
@@ -60,7 +58,7 @@
                     <tbody>
             
                         <?php
-                            $query = "SELECT * FROM tbl_client ORDER BY id DESC";
+                            $query = "SELECT id, lname, fname, mname, suffix, head_family_id, age, relation, address FROM tbl_client WHERE head_family_id IS NULL ORDER BY id DESC";
                             $query_run = mysqli_query($connection,$query);
 
                         ?>
@@ -74,22 +72,15 @@
 
                                     while($row = mysqli_fetch_assoc($query_run)){
 
-                                            
-                                            $str_length = 5;
-                                            // Left padding if number < $str_length
-                                            $str_household_id = substr("000000{$row['household_id']}", -$str_length);
-
                             ?>
 
 
                                         <tr style="text-transform: capitalize;">
                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
                                             <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                            <td><?php echo htmlspecialchars($str_household_id); ?> </td>
                                             <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                             <td><?php echo htmlspecialchars($row['age']); ?> </td>
                                             <td><?php echo htmlspecialchars($row['address']); ?> </td>
-                                            <!-- <td><?php //echo htmlspecialchars(date ('Y-m-d H:i', strtotime($row['visit_date']))); ?> </td> -->
 
                                             <td width="2%">
                                                 <form action="view_client.php" method="post">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2022 at 08:21 AM
+-- Generation Time: Dec 01, 2022 at 09:15 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_client` (
   `id` int(11) NOT NULL,
-  `household_id` int(11) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `mname` varchar(255) NOT NULL,
   `suffix` varchar(255) DEFAULT NULL,
-  `age` varchar(3) NOT NULL,
+  `head_family_id` int(11) DEFAULT NULL,
+  `age` varchar(3) DEFAULT NULL,
+  `relation` varchar(200) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `visit_date` datetime(5) NOT NULL DEFAULT current_timestamp(5),
   `date_created` datetime(5) NOT NULL DEFAULT current_timestamp(5)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,49 +44,18 @@ CREATE TABLE `tbl_client` (
 -- Dumping data for table `tbl_client`
 --
 
-INSERT INTO `tbl_client` (`id`, `household_id`, `lname`, `fname`, `mname`, `suffix`, `age`, `address`, `visit_date`, `date_created`) VALUES
-(7, 1, 'adaya', 'prince cedei', 'rds', '', '12', 'Gingoog city', '2022-11-22 11:38:38.64581', '2022-11-22 11:38:38.64581'),
-(8, 2, 'boromeo', 'queen faith agustin', 'r', 'jr', '12', 'Gingoog city', '2022-11-22 11:38:57.30184', '2022-11-22 11:38:57.30184'),
-(9, 3, 'ali', 'rohaina', 'a', '', '12', 'Gingoog city', '2022-11-22 11:39:13.58860', '2022-11-22 11:39:13.58860'),
-(10, 4, 'timon', 'samplw', 'sam', '', '13', 'BXU', '2022-11-22 11:39:34.09306', '2022-11-22 11:39:34.09306'),
-(11, 5, 'ali123', 'queen faith agustin', '', '', '32', 'Medina', '2022-11-22 11:45:06.52534', '2022-11-22 11:45:06.52534'),
-(12, 6, 'alora', 'prince cedei', '', '', '32', 'Gingoog city', '2022-11-22 11:48:57.22984', '2022-11-22 11:48:57.22984'),
-(13, 7, 'adaya', 'prince cedei', '', '', '12', 'BXU', '2022-11-22 11:49:33.91798', '2022-11-22 11:49:33.91798'),
-(14, 8, 'alora', 'rohaina', 'c', '', '13', 'Gingoog city', '2022-11-22 16:30:17.85898', '2022-11-22 16:30:17.85898'),
-(15, 9, 'timon', 'junmark', 'mejorada', '', '18', 'Agay-ayan, Gingoog City', '2022-11-29 13:18:49.03090', '2022-11-29 13:18:49.03090');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_household_member`
---
-
-CREATE TABLE `tbl_household_member` (
-  `id` int(11) NOT NULL,
-  `head_family_id` int(11) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `mname` varchar(255) NOT NULL,
-  `suffix` varchar(255) NOT NULL,
-  `client_relation` varchar(255) NOT NULL,
-  `visit_date` timestamp(5) NOT NULL DEFAULT current_timestamp(5),
-  `date_created` timestamp(5) NOT NULL DEFAULT current_timestamp(5)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_household_member`
---
-
-INSERT INTO `tbl_household_member` (`id`, `head_family_id`, `lname`, `fname`, `mname`, `suffix`, `client_relation`, `visit_date`, `date_created`) VALUES
-(1, 7, 'adaya', 'sample', 'rds', '', 'son', '2022-11-22 07:35:28.00000', '2022-11-22 07:35:28.00000'),
-(2, 8, 'boromeo', 'jane', 'r', '', 'daughter', '2022-11-22 07:35:28.00000', '2022-11-22 07:35:28.00000'),
-(5, 9, 'ali', 'ro', 'a', '', 'niece', '2022-11-28 02:01:04.20460', '2022-11-28 02:01:04.20460'),
-(6, 9, 'ali', 'jhon', 'a', '', 'brother-in-law', '2022-11-28 02:03:16.41207', '2022-11-28 02:03:16.41207'),
-(7, 8, 'boromeo', 'jhon', 'r', '', 'husband', '2022-11-28 03:34:19.95616', '2022-11-28 03:34:19.95616'),
-(8, 14, 'alora', 'joseph', 'r', 'jr', 'son', '2022-11-28 03:37:26.93369', '2022-11-28 03:37:26.93369'),
-(9, 7, 'adaya', 'cris', 'rds', '', 'wife', '2022-11-28 03:43:53.98343', '2022-11-28 03:43:53.98343'),
-(10, 15, 'timon', 'junbee', 'mejorada', '', 'brother', '2022-11-29 05:19:46.12212', '2022-11-29 05:19:46.12212'),
-(11, 15, 'timon', 'jhon', 'mejorada', '', 'nephew', '2022-11-29 05:20:07.54320', '2022-11-29 05:20:07.54320');
+INSERT INTO `tbl_client` (`id`, `lname`, `fname`, `mname`, `suffix`, `head_family_id`, `age`, `relation`, `address`, `date_created`) VALUES
+(18, 'timon', 'lolito', 'solana', '', NULL, '21', '', 'Agay-ayan, Gingoog City', '2022-12-01 15:07:14.77181'),
+(19, 'timon', 'junbee', 'mejorada', '', 18, '0', 'son', '', '2022-12-01 15:11:41.50803'),
+(20, 'adaya', 'prince cedei', 'r', '', NULL, '32', '', 'Gingoog city', '2022-12-01 15:14:24.92293'),
+(21, 'boromeo', 'rohaina', 'a', '', NULL, '13', '', 'Medina', '2022-12-01 15:25:31.33996'),
+(22, 'timon', 'junmark', 'mejorada', '', 18, '0', 'son', '', '2022-12-01 15:26:01.59523'),
+(23, 'timon', 'mary', 'mejorada', '', 18, '0', 'daughter', '', '2022-12-01 15:32:40.92347'),
+(24, 'boromeo', 'alex', 'a', '', 21, '0', 'nephew', '', '2022-12-01 15:35:24.04308'),
+(25, 'boromeo', 'joseph', 'a', '', 21, '0', 'son', '', '2022-12-01 15:35:44.51559'),
+(26, 'cabalda', 'raniel kaye', 'r', '', NULL, '18', '', 'butuan city', '2022-12-01 16:10:54.63684'),
+(27, 'cabalda', 'jojie', 'r', '', 26, '0', 'sister', '', '2022-12-01 16:11:49.87119'),
+(28, 'cabalda', 'sample', 'r', 'jr', 26, '0', 'son', '', '2022-12-01 16:13:06.44610');
 
 -- --------------------------------------------------------
 
@@ -108,14 +77,17 @@ CREATE TABLE `tbl_services` (
 --
 
 INSERT INTO `tbl_services` (`id`, `client_id`, `member_id`, `services`, `amount`, `date_created`) VALUES
-(4, 7, 1, 'tuli', '0.00', '2022-11-22 08:09:21'),
-(5, 8, 2, 'ecg', '20.00', '2022-11-22 08:09:21'),
-(8, 7, 7, 'ambot', '0.00', '2022-11-22 08:20:43'),
-(9, 7, 7, 'ibot', '0.00', '2022-11-28 03:42:46'),
-(10, 7, 1, 'ubo', '20.00', '2022-11-28 03:42:47'),
-(11, 7, 1, 'ubo', '20.05', '2022-11-28 03:57:57'),
-(12, 7, 7, 'sgpt/ alt', '10.00', '2022-11-29 06:24:04'),
-(13, 7, 9, 'cbc', '11.00', '2022-11-29 06:24:50');
+(14, 18, 19, 'ubo', '0.00', '2022-12-01 07:27:01'),
+(15, 18, 22, 'sip on', '0.00', '2022-12-01 07:27:46'),
+(16, 18, 18, 'hilanat', '2045.00', '2022-12-01 07:28:04'),
+(17, 18, 18, 'tuli', '20.05', '2022-12-01 07:28:53'),
+(19, 21, 21, 'cbc', '0.00', '2022-12-01 08:05:44'),
+(20, 21, 25, 'fecalysis', '10.00', '2022-12-01 08:05:54'),
+(21, 21, 24, 'blood typing', '10.00', '2022-12-01 08:06:08'),
+(22, 26, 26, 'blood typing', '10.00', '2022-12-01 08:12:19'),
+(23, 26, 27, 'syphilis', '20.00', '2022-12-01 08:12:31'),
+(24, 26, 26, 'ldl direct chole', '20.00', '2022-12-01 08:12:44'),
+(25, 20, 20, 'sgpt/ alt', '100.00', '2022-12-01 08:13:46');
 
 -- --------------------------------------------------------
 
@@ -146,13 +118,6 @@ INSERT INTO `tbl_user` (`id`, `username`, `password`, `role`, `date_created`) VA
 -- Indexes for table `tbl_client`
 --
 ALTER TABLE `tbl_client`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `household|_id` (`household_id`);
-
---
--- Indexes for table `tbl_household_member`
---
-ALTER TABLE `tbl_household_member`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -176,19 +141,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_client`
 --
 ALTER TABLE `tbl_client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `tbl_household_member`
---
-ALTER TABLE `tbl_household_member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_services`
 --
 ALTER TABLE `tbl_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
