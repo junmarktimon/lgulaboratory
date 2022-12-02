@@ -10,14 +10,8 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php">Home</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Setting
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="account.php">Account</a>
-          <a class="dropdown-item" href="#">User Account</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="account.php">Account</a>
       </li>
       <li>
         <form action="../logout.php" method="POST"> 
