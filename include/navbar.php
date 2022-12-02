@@ -15,7 +15,7 @@
           Setting
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Account</a>
+          <a class="dropdown-item" href="account.php">Account</a>
           <a class="dropdown-item" href="#">User Account</a>
         </div>
       </li>

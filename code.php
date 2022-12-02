@@ -264,6 +264,8 @@ if (isset($_POST['btn_update_client'])){
 //code for update member
 if (isset($_POST['btn_update_member'])){
 
+
+    $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
     $member_id = mysqli_real_escape_string($connection, check_input($_POST['view_member']));
     $mlname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mlname'])));
     $mfname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mfname'])));
@@ -274,7 +276,7 @@ if (isset($_POST['btn_update_member'])){
 
     if (!empty($mlname) || !empty($mfname) || !empty($relation)){
 
-        $query = "UPDATE tbl_client SET lname ='$lname', fname = '$fname', mname = '$mname', suffix = '$suffix',  relation = '$relation' WHERE id= '$member_id' LIMIT 1";
+        $query = "UPDATE tbl_client SET lname ='$mlname', fname = '$mfname', mname = '$mmname', suffix = '$msuffix',  relation = '$relation' WHERE id= '$member_id' LIMIT 1";
 
         $query_run = mysqli_query($connection,$query);
 
@@ -282,19 +284,19 @@ if (isset($_POST['btn_update_member'])){
         {
 
             $_SESSION['success'] = "Member Updated Successfully";
-            header('Location: admin/view_client.php?view_member='.$member_id);
+            header('Location: admin/view_client.php?view_client='.$family_id);
         }
         else
         {
             $_SESSION['failed'] = "Error Updating Data";
-            header('Location: admin/view_client.php?view_member='.$member_id);
+            header('Location: admin/view_client.php?view_client='.$family_id);
 
         }   
     
     }else{
 
             $_SESSION['failed'] = "Input Box not be empty!";
-            header('Location: admin/view_client.php?view_member='.$member_id);
+            header('Location: admin/view_client.php?view_client='.$family_id);
 
         }
 

@@ -206,6 +206,7 @@
 
         <form action="../code.php" method="post">
 
+          <input type="hidden" class="form-control" id="editInput_client_member_id" name="view_client">
             <input type="hidden" class="form-control" id="editInput_member_id" name="view_member">
 
           <div class="form-group">
@@ -272,9 +273,9 @@
         //add memeber
         $(document).on('click', '#add_member', function(){
                             
-            var id = $(this).data('id1');
+            var addmemberid = $(this).data('id1');
 
-            document.getElementById("editInput_family_id").value = id;
+            document.getElementById("editInput_family_id").value = addmemberid;
 
         });
 
@@ -283,7 +284,7 @@
         //update client
         $(document).on('click', '#edit_client', function(){
                             
-            var id = $(this).data('id1');
+            var cid = $(this).data('id1');
             var lname = $(this).data('id2');
             var fname = $(this).data('id3');
             var mname = $(this).data('id4');
@@ -291,7 +292,7 @@
             var age = $(this).data('id6');
             var address = $(this).data('id7');
 
-            document.getElementById("editInput_client_id").value = id;
+            document.getElementById("editInput_client_id").value = cid;
             document.getElementById("clastname").value = lname;
             document.getElementById("cfirstname").value = fname;
             document.getElementById("cmiddlename").value = mname;
@@ -305,19 +306,21 @@
         //update memeber
         $(document).on('click', '#edit_member', function(){
                             
-            var id = $(this).data('id1');
-            var lname = $(this).data('id2');
-            var fname = $(this).data('id3');
-            var mname = $(this).data('id4');
-            var suffix = $(this).data('id5');
-            var relation = $(this).data('id6');
+            var mid = $(this).data('id1');
+            var mlname = $(this).data('id2');
+            var mfname = $(this).data('id3');
+            var mmname = $(this).data('id4');
+            var msuffix = $(this).data('id5');
+            var mrelation = $(this).data('id6');
+            var head_id = $(this).data('id7');
 
-            document.getElementById("editInput_member_id").value = id;
-            document.getElementById("mlastname").value = lname;
-            document.getElementById("mfirstname").value = fname;
-            document.getElementById("mmiddlename").value = mname;
-            document.getElementById("msuffixname").value = suffix;
-            document.getElementById("input_select_mrelation").value = relation;
+            document.getElementById("editInput_member_id").value = mid;
+            document.getElementById("mlastname").value = mlname;
+            document.getElementById("mfirstname").value = mfname;
+            document.getElementById("mmiddlename").value = mmname;
+            document.getElementById("msuffixname").value = msuffix;
+            document.getElementById("input_select_mrelation").value = mrelation;
+            document.getElementById("editInput_client_member_id").value = head_id;
 
 
         });
