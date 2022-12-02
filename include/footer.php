@@ -150,37 +150,37 @@
 
         <form action="../code.php" method="post">
 
-        <input type="text" class="form-control" id="editInput_client_id"  name="edit_client">
+        <input type="hidden" class="form-control" id="editInput_client_id"  name="edit_client">
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="lname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
+            <input type="text" name="lname" class="form-control" id="clastname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="fname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
+            <input type="text" name="fname" class="form-control" id="cfirstname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mname" class="form-control" id="middlename" style="text-transform: uppercase;">
+            <input type="text" name="mname" class="form-control" id="cmiddlename" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="suffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
+            <input type="text" name="suffix" class="form-control" id="csuffixname" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Age</label>
-            <input type="number" name="age" class="form-control" id="age" required>
+            <input type="number" name="age" class="form-control" id="cage" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Address</label>
-            <input type="text" name="address" class="form-control" id="address" style="text-transform: uppercase;" required>
+            <input type="text" name="address" class="form-control" id="caddress" style="text-transform: uppercase;" required>
           </div>
          
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="btn_add_client" class="btn btn-primary">Add</button>
+            <button type="submit" name="btn_update_client" class="btn btn-primary">Update</button>
           </div>
         </form>
     </div>
@@ -206,27 +206,27 @@
 
         <form action="../code.php" method="post">
 
-            <input type="hidden" class="form-control" id="editInput_family_id" name="view_client">
+            <input type="hidden" class="form-control" id="editInput_member_id" name="view_member">
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="mlname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
+            <input type="text" name="mlname" class="form-control" id="mlastname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="mfname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
+            <input type="text" name="mfname" class="form-control" id="mfirstname" style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mmname" class="form-control" id="middlename" style="text-transform: uppercase;">
+            <input type="text" name="mmname" class="form-control" id="mmiddlename" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="msuffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
+            <input type="text" name="msuffix" class="form-control" id="msuffixname" style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Relation</label>
-            <select class="form-control" id="input_select" name="relation" style="text-transform: uppercase;" required>
+            <select class="form-control" id="input_select_mrelation" name="mrelation" style="text-transform: uppercase;" required>
                 <option>-- select -- </option>
                 <option value="brother">Brother</option>
                 <option value="daughter">Daughter</option>
@@ -246,7 +246,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="btn_add_member" class="btn btn-primary">Add</button>
+            <button type="submit" name="btn_update_member" class="btn btn-primary">Add</button>
           </div>
         </form>
     </div>
@@ -279,15 +279,49 @@
         });
 
 
-        //get user id for specific add member using jquery and by calling input or button id
-        //add memeber
+        //get user id for specific update client using jquery and by calling input or button id
+        //update client
         $(document).on('click', '#edit_client', function(){
                             
             var id = $(this).data('id1');
+            var lname = $(this).data('id2');
+            var fname = $(this).data('id3');
+            var mname = $(this).data('id4');
+            var suffix = $(this).data('id5');
+            var age = $(this).data('id6');
+            var address = $(this).data('id7');
 
             document.getElementById("editInput_client_id").value = id;
+            document.getElementById("clastname").value = lname;
+            document.getElementById("cfirstname").value = fname;
+            document.getElementById("cmiddlename").value = mname;
+            document.getElementById("csuffixname").value = suffix;
+            document.getElementById("cage").value = age;
+            document.getElementById("caddress").value = address;
 
         });
+
+        //get user id for specific update member using jquery and by calling input or button id
+        //update memeber
+        $(document).on('click', '#edit_member', function(){
+                            
+            var id = $(this).data('id1');
+            var lname = $(this).data('id2');
+            var fname = $(this).data('id3');
+            var mname = $(this).data('id4');
+            var suffix = $(this).data('id5');
+            var relation = $(this).data('id6');
+
+            document.getElementById("editInput_member_id").value = id;
+            document.getElementById("mlastname").value = lname;
+            document.getElementById("mfirstname").value = fname;
+            document.getElementById("mmiddlename").value = mname;
+            document.getElementById("msuffixname").value = suffix;
+            document.getElementById("input_select_mrelation").value = relation;
+
+
+        });
+
 
     </script>
 

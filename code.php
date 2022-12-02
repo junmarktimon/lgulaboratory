@@ -219,6 +219,89 @@ if (isset($_POST['btn_add_services'])){
 
 
 
+//code for update client
+if (isset($_POST['btn_update_client'])){
+
+    $client_id = mysqli_real_escape_string($connection, check_input(strtolower($_POST['edit_client'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $suffix = mysqli_real_escape_string($connection, check_input(strtolower($_POST['suffix'])));
+    $age = mysqli_real_escape_string($connection, check_input($_POST['age']));
+    $address = mysqli_real_escape_string($connection, check_input($_POST['address']));
+
+
+        if (!empty($lname) || !empty($fname) || !empty($age) || !empty($address)){
+
+            $query = "UPDATE tbl_client SET lname ='$lname', fname = '$fname', mname = '$mname', suffix = '$suffix', age = '$age', address = '$address' WHERE id= '$client_id' LIMIT 1";
+
+            $query_run = mysqli_query($connection,$query);
+
+            if($query_run)
+            {
+
+                $_SESSION['success'] = "Client Updated Successfully";
+                header('Location: admin/index.php');
+            }
+            else
+            {
+                $_SESSION['failed'] = "Error Updating Data";
+                header('Location: admin/index.php');
+
+            }   
+        
+    }else{
+
+        $_SESSION['failed'] = "Input Box not be empty!";
+        header('Location: admin/index.php');
+
+    }
+
+}
+
+
+
+//code for update member
+if (isset($_POST['btn_update_member'])){
+
+    $member_id = mysqli_real_escape_string($connection, check_input($_POST['view_member']));
+    $mlname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mlname'])));
+    $mfname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mfname'])));
+    $mmname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mmname'])));
+    $msuffix = mysqli_real_escape_string($connection, check_input(strtolower($_POST['msuffix'])));
+    $relation = mysqli_real_escape_string($connection, check_input($_POST['mrelation']));
+
+
+    if (!empty($mlname) || !empty($mfname) || !empty($relation)){
+
+        $query = "UPDATE tbl_client SET lname ='$lname', fname = '$fname', mname = '$mname', suffix = '$suffix',  relation = '$relation' WHERE id= '$member_id' LIMIT 1";
+
+        $query_run = mysqli_query($connection,$query);
+
+        if($query_run)
+        {
+
+            $_SESSION['success'] = "Member Updated Successfully";
+            header('Location: admin/view_client.php?view_member='.$member_id);
+        }
+        else
+        {
+            $_SESSION['failed'] = "Error Updating Data";
+            header('Location: admin/view_client.php?view_member='.$member_id);
+
+        }   
+    
+    }else{
+
+            $_SESSION['failed'] = "Input Box not be empty!";
+            header('Location: admin/view_client.php?view_member='.$member_id);
+
+        }
+
+}
+
+
+
 
 
 

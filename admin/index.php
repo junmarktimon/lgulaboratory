@@ -26,12 +26,12 @@
 
                 <?php
                     if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
-                        echo '<div class="p-3 mb-2 bg-success text-white" id="message"> '.htmlspecialchars($_SESSION['success']).'</div>';
+                        echo '<div class="p-3 mb-2 bg-success text-white mt-5" id="message"> '.htmlspecialchars($_SESSION['success']).'</div>';
                         unset($_SESSION['success']);
                     }
 
                     if (isset($_SESSION['failed']) && $_SESSION['failed'] !=''){
-                        echo '<div class="p-3 mb-2 bg-danger text-white" id="message"> '.htmlspecialchars($_SESSION['failed']).'</div>';
+                        echo '<div class="p-3 mb-2 bg-danger text-white mt-5" id="message"> '.htmlspecialchars($_SESSION['failed']).'</div>';
                         unset($_SESSION['failed']);
                     }
                 ?>
@@ -92,7 +92,7 @@
 
                                             <td width="2%">
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-success btn-circle"  id="edit_client" data-toggle="modal" data-target="#staticBackdrop3" data-id1="<?php echo htmlspecialchars($row['id']); ?>" >
+                                                <button type="button" class="btn btn-success btn-circle"  id="edit_client" data-toggle="modal" data-target="#staticBackdrop3" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['lname']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['suffix']); ?>" data-id6="<?php echo htmlspecialchars($row['age']); ?>" data-id7="<?php echo htmlspecialchars($row['address']); ?>">
                                                     <i class="fas fa-user-edit"></i> 
                                                 </button>
                                             </td>
