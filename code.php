@@ -306,6 +306,24 @@ if (isset($_POST['btn_update_member'])){
 
 
 
+//code for update admin password
+if (isset($_POST['btn_change_pwd'])) {
+
+    $uname = mysqli_real_escape_string($connection, check_input($_POST['uname']));
+    $pwd = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd'])));
+    $pwd1 = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd1'])));
+
+        if (!empty($uname) && !empty($pwd) && !empty($pwd1)){
+
+            
+
+        }
+
+}
+
+
+
+
 
 
 

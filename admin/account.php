@@ -37,24 +37,25 @@
 
                 ?>
 
+                <!-- <form action="../code.php" method="post"> -->
                 <form>
 
                     <input type="hidden" name="">
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="twxt" class="form-control" value="<?php echo htmlspecialchars($row['username']) ?>" disabled>
+                        <input type="twxt" class="form-control" name="uname" value="<?php echo htmlspecialchars($row['username']) ?>" disabled>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" required>
+                        <input type="password" name="pwd" class="form-control" required>
                         <span style="color:red; font-size:10px;">* Your password must be 8 or more characters long, contain letters, numbers, and special characters </span>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Confirm Password</label>
-                        <input type="password" class="form-control" required>
+                        <input type="password" name="pwd1" class="form-control" required>
                     </div>
                     
                     <button type="submit" class="btn btn-primary float-right mb-5" name="btn_change_pwd"> Update </button>

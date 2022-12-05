@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 09:15 AM
+-- Generation Time: Dec 05, 2022 at 02:02 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -46,16 +46,21 @@ CREATE TABLE `tbl_client` (
 
 INSERT INTO `tbl_client` (`id`, `lname`, `fname`, `mname`, `suffix`, `head_family_id`, `age`, `relation`, `address`, `date_created`) VALUES
 (18, 'timon', 'lolito', 'solana', '', NULL, '21', '', 'Agay-ayan, Gingoog City', '2022-12-01 15:07:14.77181'),
-(19, 'timon', 'junbee', 'mejorada', '', 18, '0', 'son', '', '2022-12-01 15:11:41.50803'),
+(19, 'timon', 'junbeer', 'mejorada', '', 18, '0', 'son', '', '2022-12-01 15:11:41.50803'),
 (20, 'adaya', 'prince cedei', 'r', '', NULL, '32', '', 'Gingoog city', '2022-12-01 15:14:24.92293'),
 (21, 'boromeo', 'rohaina', 'a', '', NULL, '13', '', 'Medina', '2022-12-01 15:25:31.33996'),
-(22, 'timon', 'junmark', 'mejorada', '', 18, '0', 'son', '', '2022-12-01 15:26:01.59523'),
+(22, 'timon', 'junmark', 'mejorada', '', 18, '0', 'daughter', '', '2022-12-01 15:26:01.59523'),
 (23, 'timon', 'mary', 'mejorada', '', 18, '0', 'daughter', '', '2022-12-01 15:32:40.92347'),
 (24, 'boromeo', 'alex', 'a', '', 21, '0', 'nephew', '', '2022-12-01 15:35:24.04308'),
 (25, 'boromeo', 'joseph', 'a', '', 21, '0', 'son', '', '2022-12-01 15:35:44.51559'),
-(26, 'cabalda', 'raniel kaye', 'r', '', NULL, '18', '', 'butuan city', '2022-12-01 16:10:54.63684'),
-(27, 'cabalda', 'jojie', 'r', '', 26, '0', 'sister', '', '2022-12-01 16:11:49.87119'),
-(28, 'cabalda', 'sample', 'r', 'jr', 26, '0', 'son', '', '2022-12-01 16:13:06.44610');
+(26, 'cabalda', 'raniel kaye', 'r', '', NULL, '19', '', 'butuan city', '2022-12-01 16:10:54.63684'),
+(27, 'cabalda', 'jojie', 'r', '', 26, '0', 'daughter', '', '2022-12-01 16:11:49.87119'),
+(28, 'cabalda', 'sample', 'r', 'jr', 26, '0', 'son', '', '2022-12-01 16:13:06.44610'),
+(29, 'cabalda', 'rany', 'r', '', 26, '0', 'son', '', '2022-12-02 08:43:40.26161'),
+(30, 'doe', 'jhon', 'l', '', NULL, '22', '', 'Medina', '2022-12-02 14:16:43.84506'),
+(33, 'marcos', 'fr', 'c', 'jr', NULL, '25', '', 'Medina', '2022-12-05 08:41:39.96836'),
+(34, 'marcos', 'bongbong', 'c', '', 33, '0', 'brother', '', '2022-12-05 08:42:03.64126'),
+(35, 'marcos', 'jane', 'c', '', 33, '0', 'daughter', '', '2022-12-05 08:42:20.46489');
 
 -- --------------------------------------------------------
 
@@ -87,7 +92,10 @@ INSERT INTO `tbl_services` (`id`, `client_id`, `member_id`, `services`, `amount`
 (22, 26, 26, 'blood typing', '10.00', '2022-12-01 08:12:19'),
 (23, 26, 27, 'syphilis', '20.00', '2022-12-01 08:12:31'),
 (24, 26, 26, 'ldl direct chole', '20.00', '2022-12-01 08:12:44'),
-(25, 20, 20, 'sgpt/ alt', '100.00', '2022-12-01 08:13:46');
+(25, 20, 20, 'sgpt/ alt', '100.00', '2022-12-01 08:13:46'),
+(26, 18, 23, 'fasting blood sugar', '20.00', '2022-12-01 08:27:48'),
+(27, 33, 33, 'urinalysis', '20.00', '2022-12-05 00:42:52'),
+(28, 33, 35, 'hbsag (ict)', '30.00', '2022-12-05 00:43:07');
 
 -- --------------------------------------------------------
 
@@ -100,7 +108,7 @@ CREATE TABLE `tbl_user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` int(1) NOT NULL,
-  `date_created` varchar(5) NOT NULL
+  `date_created` datetime(5) NOT NULL DEFAULT current_timestamp(5)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -108,7 +116,9 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `username`, `password`, `role`, `date_created`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '0000-00-00 00:00:00.00000'),
+(2, 'staff', '1253208465b1efa876f982d8a9e73eef', 2, '0000-00-00 00:00:00.00000'),
+(3, 'staff1', '1253208465b1efa876f982d8a9e73eef', 2, '2022-12-05 08:45:10.00000');
 
 --
 -- Indexes for dumped tables
@@ -141,19 +151,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_client`
 --
 ALTER TABLE `tbl_client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_services`
 --
 ALTER TABLE `tbl_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
