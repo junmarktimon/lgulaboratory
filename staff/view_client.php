@@ -6,7 +6,7 @@
     {
         header("Location: ../index.php");
     }
-    if($_SESSION['role'] != 1)
+    if($_SESSION['role'] != 2)
     {
         header("Location: ../index.php");
     }
@@ -70,7 +70,6 @@
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
-                                            <th> Delete </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -104,13 +103,6 @@
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-success btn-circle"  id="edit_member" data-toggle="modal" data-target="#staticBackdrop4" data-id1="<?php echo htmlspecialchars($row['id']); ?>"  data-id2="<?php echo htmlspecialchars($row['lname']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['suffix']); ?>" data-id6="<?php echo htmlspecialchars($row['relation']); ?>" data-id7="<?php echo htmlspecialchars($row['head_family_id']); ?>">
                                                                     <i class="fas fa-user-edit"></i> 
-                                                                </button>
-                                                            </td>
-
-                                                            <td class="text-center">
-                                                                 <!-- Button trigger modal -->
-                                                                <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
-                                                                    <i class="fas fa-user-times"></i>
                                                                 </button>
                                                             </td>
 
@@ -260,7 +252,6 @@
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
-                                            <th> Delete </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -294,13 +285,6 @@
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-success btn-circle"  id="edit_member" data-toggle="modal" data-target="#staticBackdrop4" data-id1="<?php echo htmlspecialchars($row['id']); ?>"  data-id2="<?php echo htmlspecialchars($row['lname']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['suffix']); ?>" data-id6="<?php echo htmlspecialchars($row['relation']); ?>" data-id7="<?php echo htmlspecialchars($row['head_family_id']); ?>">
                                                                     <i class="fas fa-user-edit"></i> 
-                                                                </button>
-                                                            </td>
-
-                                                            <td class="text-center">
-                                                                 <!-- Button trigger modal -->
-                                                                <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
-                                                                    <i class="fas fa-user-times"></i>
                                                                 </button>
                                                             </td>
 
@@ -414,7 +398,7 @@
     ?>
 <?php
 
-    include('../include/footer.php');
+    include('footer.php');
 
 ?>
 

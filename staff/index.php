@@ -6,7 +6,7 @@
     {
         header("Location: ../index.php");
     }
-    if($_SESSION['role'] != 1)
+    if($_SESSION['role'] != 2)
     {
         header("Location: ../index.php");
     }
@@ -53,7 +53,6 @@
                             <th>Address</th>
                             <th>View</th>
                             <th>Edit</th>
-                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,13 +97,6 @@
                                                 </button>
                                             </td>
 
-                                            <td class="text-center">
-                                                <!-- Button trigger modal -->
-                                                <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
-                                                <i class="fas fa-user-times"></i>
-                                                </button>
-                                            </td>
-
                                         </tr>
                                                 <?php
 
@@ -127,7 +119,7 @@
 <?php
                                                        
 
-    include('../include/footer.php');
+    include('footer.php');
 
 ?>
 

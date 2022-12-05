@@ -6,69 +6,6 @@ include('security.php');
 
 
 
-//code for login
-if (isset($_POST['btn_login'])) 
-{
-
-    $username_login = mysqli_real_escape_string($connection, check_input($_POST['username']));
-    $password_login = md5(mysqli_real_escape_string($connection, check_input($_POST['password'])));
-
-        if (!empty($username_login) && !empty($password_login)) 
-        {
-                    
-                    $query = "SELECT * FROM tbl_user WHERE username = '$username_login' AND password ='$password_login'";
-                    
-
-                    $query_run = mysqli_query($connection, $query);
-
-                    if (mysqli_num_rows($query_run) > 0) 
-                    {
-                        
-                        $row = mysqli_fetch_assoc($query_run);
-                        $_SESSION['role'] = $row['role'];
-                        $_SESSION['username'] = $row['username'];
-                        $_SESSION['id'] = $row['id'];
-
-                        if ($_SESSION["role"] == 1) 
-                        {
-                            // $query_run1 = mysqli_query($connection,$query1);
-                            // $his_data = "Admin Login Successfully!";
-                            // $query1 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
-                            // $query_run1 = mysqli_query($connection,$query1);
-
-                            $_SESSION['username'] = $username_login;
-                            $_SESSION['role'];
-                            $_SESSION['id'];
-                            header("Location:admin");
-                            exit;
-                        } else 
-                        {
-                            
-
-                            $_SESSION['username'] = $username_login;
-                            $_SESSION['role'];
-                            $_SESSION['id'];
-                            header("Location:staff");
-                            exit;
-                        }
-
-                    }else 
-                    {
-                        
-                        $_SESSION['status'] = "Username/Password is Invalid!";
-                        header('Location: index.php');
-                    }
-        } else 
-        {
-
-            $_SESSION['status'] = "Username/Password not be Empty!";
-            header('Location: index.php');
-        }
-
-
-}
-
-
 
 //code for adding client
 if (isset($_POST['btn_add_client'])){
@@ -88,7 +25,7 @@ if (isset($_POST['btn_add_client'])){
 
             if (mysqli_num_rows($duprow) > 0){
                 $_SESSION['failed'] = "Client Already Exist!";
-                header('Location: admin/index.php');
+                header('Location: staff/index.php');
 
             }else{
 
@@ -103,19 +40,19 @@ if (isset($_POST['btn_add_client'])){
                 if ($query_run){
 
                     $_SESSION['success'] = "Client Added Successfully!";
-                    header('Location: admin/index.php');
+                    header('Location: staff/index.php');
 
                 }else{
 
                     $_SESSION['failed'] = "Error Adding Client!";
-                    header('Location: admin/index.php');
+                    header('Location: staff/index.php');
                 }
             }
         
     }else{
 
         $_SESSION['failed'] = "Input Box not be empty!";
-        header('Location: admin/index.php');
+        header('Location: staff/index.php');
 
     }
 
@@ -143,7 +80,7 @@ if (isset($_POST['btn_add_member'])){
             if (mysqli_num_rows($duprow) > 0){
 
                 $_SESSION['failed'] = "Member Already Exist!";
-                header('Location:admin/view_client.php?view_client='.$family_id);
+                header('Location:staff/view_client.php?view_client='.$family_id);
 
             }else{
 
@@ -158,19 +95,19 @@ if (isset($_POST['btn_add_member'])){
                 if ($query_run){
 
                     $_SESSION['success'] = "Member Added Successfully!";
-                    header('Location: admin/view_client.php?view_client='.$family_id);
+                    header('Location: staff/view_client.php?view_client='.$family_id);
 
                 }else{
 
                     $_SESSION['failed'] = "Error Adding Member!";
-                    header('Location: admin/view_client.php?view_client='.$family_id);
+                    header('Location: staff/view_client.php?view_client='.$family_id);
                 }
             }
         
     }else{
 
         $_SESSION['failed'] = "Input Box not be empty!";
-        header('Location: admin/view_client.php?view_client='.$family_id);
+        header('Location: staff/view_client.php?view_client='.$family_id);
 
     }
 
@@ -199,12 +136,12 @@ if (isset($_POST['btn_add_services'])){
                 if ($query_run){
 
                     $_SESSION['success'] = "Member Added Successfully!";
-                    header('Location: admin/view_client.php?view_client='.$family_id);
+                    header('Location: staff/view_client.php?view_client='.$family_id);
 
                 }else{
 
                     $_SESSION['failed'] = "Error Adding Member!";
-                    header('Location: admin/view_client.php?view_client='.$family_id);
+                    header('Location: staff/view_client.php?view_client='.$family_id);
                 }
         
             
@@ -212,7 +149,7 @@ if (isset($_POST['btn_add_services'])){
     }else{
 
         $_SESSION['failed'] = "Input Box not be empty!";
-        header('Location: admin/view_client.php?view_client='.$family_id);
+        header('Location: staff/view_client.php?view_client='.$family_id);
 
     }
 
@@ -242,19 +179,19 @@ if (isset($_POST['btn_update_client'])){
             {
 
                 $_SESSION['success'] = "Client Updated Successfully";
-                header('Location: admin/index.php');
+                header('Location: staff/index.php');
             }
             else
             {
                 $_SESSION['failed'] = "Error Updating Data";
-                header('Location: admin/index.php');
+                header('Location: staff/index.php');
 
             }   
         
     }else{
 
         $_SESSION['failed'] = "Input Box not be empty!";
-        header('Location: admin/index.php');
+        header('Location: staff/index.php');
 
     }
 
@@ -285,19 +222,19 @@ if (isset($_POST['btn_update_member'])){
         {
 
             $_SESSION['success'] = "Member Updated Successfully";
-            header('Location: admin/view_client.php?view_client='.$family_id);
+            header('Location: staff/view_client.php?view_client='.$family_id);
         }
         else
         {
             $_SESSION['failed'] = "Error Updating Data";
-            header('Location: admin/view_client.php?view_client='.$family_id);
+            header('Location: staff/view_client.php?view_client='.$family_id);
 
         }   
     
     }else{
 
             $_SESSION['failed'] = "Input Box not be empty!";
-            header('Location: admin/view_client.php?view_client='.$family_id);
+            header('Location: staff/view_client.php?view_client='.$family_id);
 
         }
 

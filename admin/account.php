@@ -117,7 +117,7 @@
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
-                                                    <i class="fas fa-user-edit"></i>
+                                                <i class="fas fa-user-times"></i>
                                                 </button>
                                             </td>
 
@@ -126,8 +126,6 @@
 
                                     }
 
-                                }else {
-                                        
                                 }
 
                                         ?>
@@ -139,6 +137,21 @@
         </div>
 
         <div class="col-2"></div>
+    </div>
+</div>
+
+
+<div class="container-fluid mt-5">
+    <div class="row">
+
+    <div class="col-4"></div>
+
+    <div class="col-4 bg-light border border-light rounded"> </div>
+
+
+    <div class="col-4"></div>
+    
+
     </div>
 </div>
 
