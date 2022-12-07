@@ -47,7 +47,7 @@
                 
                         
 
-                        <div class="col-4 border">
+                        <div class="col-4 bg-light border border-light rounded">
 
                             <?php
                                 if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
@@ -67,7 +67,21 @@
                             </button>
 
                                 <h1 class="text-center mt-1"> Family Member List</h1>
-                                <!-- <h3 class="text-center mt-1"> (<?php //echo strtoupper($client_name); ?>) </h3> -->
+                                    <?php
+
+                                        $query5 = "SELECT * FROM tbl_client WHERE id = '$client_id' LIMIT 1";
+                                        $query_run5 = mysqli_query($connection,$query5);
+
+                                        foreach($query_run5 as $row5){
+
+                                            ?>
+
+                                                <h3 class="text-center" style="text-transform: uppercase;">(<?php echo htmlspecialchars($row5['lname'] . " " . $row5['fname'] . " " . $row5['mname'] . " " . $row5['suffix']) ?>)</h3>
+
+                                            <?php
+
+                                        }
+                                    ?>
                             <div class="table-responsive mt-5">
                                 <table class="table table-bordered stripe" id="dataTable2" width="100%" cellspacing="0">
                                     <thead>
@@ -140,7 +154,7 @@
 
                         <div class="col-1"></div>
 
-                        <div class="col-5 border">
+                        <div class="col-5 bg-light border border-light rounded">
 
                             <form action="add_services.php" method="post">
                                 <input type="hidden" name="edit_services_client_id" value="<?php echo htmlspecialchars($client_id); ?>">
@@ -237,7 +251,7 @@
                 
                         
 
-                        <div class="col-4 border">
+                        <div class="col-4 bg-light border border-light rounded">
 
                             <?php
                                 if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
@@ -257,6 +271,21 @@
                             </button>
 
                                 <h1 class="text-center mt-1"> Family Member List</h1>
+                                <?php
+
+                                        $query5 = "SELECT * FROM tbl_client WHERE id = '$client_id' LIMIT 1";
+                                        $query_run5 = mysqli_query($connection,$query5);
+
+                                        foreach($query_run5 as $row5){
+
+                                            ?>
+
+                                                <h3 class="text-center" style="text-transform: uppercase;">(<?php echo htmlspecialchars($row5['lname'] . " " . $row5['fname'] . " " . $row5['mname'] . " " . $row5['suffix']) ?>)</h3>
+
+                                            <?php
+
+                                        }
+                                    ?>
                                 
                             <div class="table-responsive mt-5">
                                 <table class="table table-bordered stripe" id="dataTable2" width="100%" cellspacing="0">
@@ -330,7 +359,7 @@
 
                         <div class="col-1"></div>
 
-                        <div class="col-5 border">
+                        <div class="col-5 bg-light border border-light rounded">
 
                             <form action="add_services.php" method="post">
                                 <input type="hidden" name="edit_services_client_id" value="<?php echo htmlspecialchars($client_id); ?>">

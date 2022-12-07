@@ -36,7 +36,9 @@
                     }
                 ?>
 
-            <div class="table-responsive mt-5">
+            <div class="table-responsive mt-5 ">
+
+                    <h1 class="text-center"> CLIENT/MEMBER LIST </h1>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#staticBackdrop">

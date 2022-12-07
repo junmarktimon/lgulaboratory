@@ -46,7 +46,7 @@
 
                 <div class="form-group" >
                     <label for="exampleFormControlSelect1">Name</label>
-                    <select class="form-control" name="client_or_member" required>
+                    <select class="form-control" name="client_or_member" style="text-transform: uppercase;" required>
                         <option selected disabled value=""> -- SELECT -- </option>
 
                                     <?php
