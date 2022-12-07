@@ -87,23 +87,23 @@
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="mlname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
+            <input type="text" name="mlname" class="form-control"  style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="mfname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
+            <input type="text" name="mfname" class="form-control"  style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mmname" class="form-control" id="middlename" style="text-transform: uppercase;">
+            <input type="text" name="mmname" class="form-control"  style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="msuffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
+            <input type="text" name="msuffix" class="form-control"  style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Relation</label>
-            <select class="form-control" id="input_select" name="relation" style="text-transform: uppercase;" required>
+            <select class="form-control"  name="relation" style="text-transform: uppercase;" required>
                 <option>-- select -- </option>
                 <option value="brother">Brother</option>
                 <option value="daughter">Daughter</option>

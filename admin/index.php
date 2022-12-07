@@ -49,8 +49,6 @@
                             <th>Seq. #</th>
                             <th>ID #</th>
                             <th>Name</th>
-                            <th>Age</th>
-                            <th>Address</th>
                             <th>View</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -59,7 +57,7 @@
                     <tbody>
             
                         <?php
-                            $query = "SELECT id, lname, fname, mname, suffix, head_family_id, age, relation, address FROM tbl_client WHERE head_family_id IS NULL ORDER BY id DESC";
+                            $query = "SELECT id, lname, fname, mname, suffix, head_family_id, age, relation, address FROM tbl_client ORDER BY id DESC";
                             $query_run = mysqli_query($connection,$query);
 
                         ?>
@@ -80,25 +78,40 @@
                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
                                             <td><?php echo htmlspecialchars($row['id']); ?> </td>
                                             <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
-                                            <td><?php echo htmlspecialchars($row['age']); ?> </td>
-                                            <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['address']); ?> </td>
 
                                             <td width="2%">
                                                 <form action="view_client.php" method="post">
                                                     <input type="hidden" name="view_client" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                                    <input type="hidden" name="view_client1" value="<?php echo htmlspecialchars($row['head_family_id']); ?>">
                                                     <input type="hidden" name="view_client_name" value="<?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']. " " .$row['suffix']); ?>">
                                                     <button  type="submit" name="btn_view_client" class="btn btn-info btn-circle"><i class='fas fa-eye'></i></button>
                                                 </form>
                                             </td>
 
                                             <td width="2%">
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-success btn-circle"  id="edit_client" data-toggle="modal" data-target="#staticBackdrop3" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['lname']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['suffix']); ?>" data-id6="<?php echo htmlspecialchars($row['age']); ?>" data-id7="<?php echo htmlspecialchars($row['address']); ?>">
-                                                    <i class="fas fa-user-edit"></i> 
-                                                </button>
+                                                 <?php
+                                                    if(empty($row['head_family_id'])){
+                                                ?>
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-success btn-circle"  id="edit_client" data-toggle="modal" data-target="#staticBackdrop3" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['lname']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['suffix']); ?>" data-id6="<?php echo htmlspecialchars($row['age']); ?>" data-id7="<?php echo htmlspecialchars($row['address']); ?>">
+                                                            <i class="fas fa-user-edit"></i> 
+                                                        </button>
+
+                                                <?php
+                                                    }else{
+                                                        ?>
+
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-success btn-circle" disabled>
+                                                            <i class="fas fa-user-edit"></i> 
+                                                        </button>
+
+                                                    <?php
+                                                    }
+                                                ?>
                                             </td>
 
-                                            <td class="text-center">
+                                            <td class="text-center" style="width: 2%;">
                                                 <!-- Button trigger modal -->
                                                 <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
                                                 <i class="fas fa-user-times"></i>

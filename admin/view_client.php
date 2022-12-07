@@ -28,7 +28,15 @@
     //code for viewing client personal info and family member
      if (isset($_POST['btn_view_client'])){
         
-        $client_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
+        $client_id1 = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
+        $client_id2 = mysqli_real_escape_string($connection, check_input($_POST['view_client1']));
+
+
+        if(empty($client_id2) and  !empty($client_id1)){
+            $client_id = $client_id1;
+        }else{
+            $client_id = $client_id2;
+        }
 
         ?>
 
