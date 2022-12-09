@@ -28,8 +28,8 @@
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 mt-5 bg-light border border-light rounded">
+        <div class="col-2"></div>
+        <div class="col-8 mt-5 bg-light border border-light rounded">
             <h3 class="text-center mt-5"> Add Services</h3>
             <form class="mt-5" action="../code.php" method="post">
 
@@ -45,7 +45,7 @@
                 ?>
 
                 <div class="form-group" >
-                    <label for="exampleFormControlSelect1">Name</label>
+                    <label for="exampleFormControlSelect1" style="font-weight:bold;">Name</label>
                     <select class="form-control" name="client_or_member" style="text-transform: uppercase;" required>
                         <option selected disabled value=""> -- SELECT -- </option>
 
@@ -63,80 +63,106 @@
                     </select>
                 </div>
 
-
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Select Services</label>
-                    <select class="form-control" name="services" required>
-                        <option selected disabled value=""> -- SELECT -- </option>
-                        <option value="CBC"> CBC </option>
-                        <option value="URINALYSIS"> URINALYSIS </option>
-                        <option value="FECALYSIS"> FECALYSIS </option>
-                        <option value="BLOOD TYPING"> BLOOD TYPING </option>
-                        <option value="PREGNANCY TEST"> PREGNANCY TEST </option>
-                        <option value="HBsAg (ICT)"> HBsAg (ICT) </option>
-                        <option value="SYPHILIS"> SYPHILIS </option>
-                        <option value="HIV 1/2"> HIV 1/2 </option>
-                        <option value="GRAM STAINING"> GRAM STAINING </option>
-                        <option value="FASTING BLOOD SUGAR"> FASTING BLOOD SUGAR </option>
-                        <option value="CHOLESTEROL (TOTAL)"> CHOLESTEROL (TOTAL) </option>
-                        <option value="HDL DIRECT CHOLE"> HDL DIRECT CHOLE </option>
-                        <option value="LDL DIRECT CHOLE"> LDL DIRECT CHOLE </option>
-                        <option value="TRIGLYCERIDES"> TRIGLYCERIDES </option>
-                        <option value="LIPID PROFILE"> LIPID PROFILE </option>
-                        <option value="BLOOD URIC ACID"> BLOOD URIC ACID </option>
-                        <option value="SERUM CRATININE"> SERUM CRATININE </option>
-                        <option value="BLOOD UREA NITROGREN"> BLOOD UREA NITROGREN </option>
-                        <option value="SGPT/ ALT"> SGPT/ ALT </option>
-                        <option value=" SGOT/ AST"> SGOT/ AST </option>
-                        <option value="ALP"> ALP </option>
-                        <option value="TOTAL PROTIEN"> TOTAL PROTIEN </option>
-                        <option value="ALBUMIN"> ALBUMIN </option>
-                        <option value="TPAG"> TPAG </option>
-                        <option value="TOTAL BILIRUBIN"> TOTAL BILIRUBIN </option>
-                        <option value="TB DB"> TB DB </option>
-                        <option value="SERUM SODIUM"> SERUM SODIUM </option>
-                        <option value="SERUM POTASSIUM"> SERUM POTASSIUM </option>
-                        <option value="HgbAc"> HgbAc </option>
-                        <option value="75 gms OGTT"> 75 gms OGTT </option>
-                        <option value="100 gms OGTT"> 100 gms OGTT </option>
-                        <option value="TSH"> TSH </option>
-                        <option value=""> T3 </option>
-                        <option value="T3"> T4 </option>
-                        <option value="FT3"> FT3 </option>
-                        <option value="FT4"> FT4 </option>
-                        <option value="C-REACTIVE PROTIEN"> C-REACTIVE PROTIEN </option>
-                        <option value="TROPONIN I"> TROPONIN I </option>
-                        <option value="NT PRO- BRAIN"> NT PRO- BRAIN </option>
-                        <option value="NATRIURETIC PEPTIDE"> NATRIURETIC PEPTIDE </option>
-                        <option value="(NT- pro- BNP)"> (NT- pro- BNP) </option>
-                        <option value="D- DIMER"> D- DIMER </option>
-                        <option value="CK-MB"> CK-MB </option>
-                        <option value="MYOGLOBIN (MYO)"> MYOGLOBIN (MYO) </option>
-                        <option value="ALPHA- FETOPROTIEN (AFP)"> ALPHA- FETOPROTIEN (AFP) </option>
-                        <option value="PROSTATE SPECIFIC ANTIGEN (AFP)"> PROSTATE SPECIFIC ANTIGEN (AFP) </option>
-                        <option value="FREE PROSTATE SPECIFIC ANTIGEN (FPSA)"> FREE PROSTATE SPECIFIC ANTIGEN (FPSA) </option>
-                        <option value="CEA 125"> CEA 125 </option>
-                        <option value="LUTEINIZING HORMONE (LH)"> LUTEINIZING HORMONE (LH) </option>
-                        <option value="FOLLICULAR STIMULATING HORMONE (FSH)"> FOLLICULAR STIMULATING HORMONE (FSH) </option>
-                        <option value="PROGESTERONE"> PROGESTERONE </option>
-                        <option value="PROLACTIN (PRL)"> PROLACTIN (PRL) </option>
-                        <option value="MICROALBUMIN"> MICROALBUMIN </option>
-                        <option value="EXPANDED NEWBORN SCREENING"> EXPANDED NEWBORN SCREENING </option>
-                        <option value="RAPID ANTIGEN TEST (SARS COV-2)"> RAPID ANTIGEN TEST (SARS COV-2) </option>
-                        <option value=" PAP SMEAR"> PAP SMEAR </option>
-                    </select>
-                </div>
+                    <label for="exampleInputPassword1" style="font-weight:bold;">Services</label> <br>
 
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width:3%;"> <input type="checkbox" class="checkbox-inline" name="services[]" value="CBC"> CBC </td>
+                                <td style="width:3%;"> <input type="checkbox" class="checkbox-inline" name="services[]" value="URINALYSIS"> URINALYSIS </td>
+                                <td style="width:4%;"> <input type="checkbox" class="checkbox-inline" name="services[]" value="FECALYSIS"> FECALYSIS </td>
+                                <td style="width:4%;"> <input type="checkbox" class="checkbox-inline" name="services[]" value="BLOOD TYPING"> BLOOD TYPING </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="PREGNANCY TEST"> PREGNANCY TEST </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="HBsAg (ICT)"> HBsAg (ICT) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="SYPHILIS"> SYPHILIS </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="HIV 1/2"> HIV 1/2 </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="GRAM STAINING"> GRAM STAINING </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="FASTING BLOOD SUGAR"> FASTING BLOOD SUGAR </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="CHOLESTEROL (TOTAL)"> CHOLESTEROL (TOTAL) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="HDL DIRECT CHOLE"> HDL DIRECT CHOLE </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="LDL DIRECT CHOLE"> LDL DIRECT CHOLE </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TRIGLYCERIDES"> TRIGLYCERIDES </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="LIPID PROFILE"> LIPID PROFILE </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="BLOOD URIC ACID"> BLOOD URIC ACID </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="SERUM CRATININE"> SERUM CRATININE </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="BLOOD UREA NITROGREN"> BLOOD UREA NITROGREN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="SGPT/ ALT"> SGPT/ ALT </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="SGOT/ AST"> SGOT/ AST </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="ALP"> ALP </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TOTAL PROTIEN"> TOTAL PROTIEN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="ALBUMIN"> ALBUMIN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TPAG"> TPAG </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TOTAL BILIRUBIN"> TOTAL BILIRUBIN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TB DB"> TB DB </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="SERUM SODIUM"> SERUM SODIUM </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="SERUM POTASSIUM"> SERUM POTASSIUM </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="HgbAc"> HgbAc </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="75 gms OGTT"> 75 gms OGTT </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="100 gms OGTT"> 100 gms OGTT </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TSH"> TSH </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="T3"> T3 </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="T4"> T4 </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="FT3"> FT3 </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="FT4"> FT4 </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="C-REACTIVE PROTIEN"> C-REACTIVE PROTIEN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="TROPONIN I"> TROPONIN I </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="NT PRO- BRAIN"> NT PRO- BRAIN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="NATRIURETIC PEPTIDE"> NATRIURETIC PEPTIDE </td>
+                            </tr>
+                        </tbody><tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="(NT- pro- BNP)"> (NT- pro- BNP) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="D- DIMER"> D- DIMER </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="CK-MB"> CK-MB </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="MYOGLOBIN (MYO)"> MYOGLOBIN (MYO) </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="ALPHA- FETOPROTIEN (AFP)"> ALPHA- FETOPROTIEN (AFP) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="PROSTATE SPECIFIC ANTIGEN (AFP)"> PROSTATE SPECIFIC ANTIGEN (AFP) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="FREE PROSTATE SPECIFIC ANTIGEN (FPSA)"> FREE PROSTATE SPECIFIC ANTIGEN (FPSA) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="CEA 125"> CEA 125 </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="LUTEINIZING HORMONE (LH)"> LUTEINIZING HORMONE (LH) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="FOLLICULAR STIMULATING HORMONE (FSH)"> FOLLICULAR STIMULATING HORMONE (FSH) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="PROGESTERONE"> PROGESTERONE </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="PROLACTIN (PRL)"> PROLACTIN (PRL) </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="MICROALBUMIN"> MICROALBUMIN </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="EXPANDED NEWBORN SCREENING"> EXPANDED NEWBORN SCREENING </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="RAPID ANTIGEN TEST (SARS COV-2)"> RAPID ANTIGEN TEST (SARS COV-2) </td>
+                                <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="PAP SMEAR"> PAP SMEAR </td>
+                            </tr>
+                    </table>
                 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Amount</label>
+                    <label for="exampleInputPassword1" style="font-weight:bold;">Amount</label>
                     <input type="number" class="form-control" name="amount" required>
                 </div>
                
                 <button type="submit" name="btn_add_services" class="btn btn-primary float-right mb-5">Add</button>
             </form>
         </div>
-        <div class="col-4"></div>
+        <div class="col-2"></div>
     </div>
 </div>
 
