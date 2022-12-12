@@ -184,14 +184,24 @@ if (isset($_POST['btn_add_services'])){
 
     $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
     $client_or_member_id = mysqli_real_escape_string($connection, check_input(strtolower($_POST['client_or_member'])));
-    $services = mysqli_real_escape_string($connection, check_input(strtolower($_POST['services'])));
-    $amount = mysqli_real_escape_string($connection, check_input(strtolower($_POST['amount'])));
+    $services = $_POST['services'];
+    $otherServices = mysqli_real_escape_string($connection, check_input(strtolower($_POST['otherservices'])));
+    $amount = mysqli_real_escape_string($connection, check_input($_POST['amount']));
+    $services1 = implode(', ', $services);
+
+    if(!empty($otherServices)){
+        // $services1 = htmlspecialchars($services1 . ", " . $otherServices);
+        $services1 = mysqli_real_escape_string($connection, check_input($services1 . ", " . $otherServices));
+    }
+
+    echo $services1;
+    die();
 
         if (!empty($client_or_member_id) || !empty($services)){
 
                 $query = "INSERT INTO tbl_services (client_id, member_id, services, amount) 
                             VALUES 
-                        ('$family_id','$client_or_member_id','$services','$amount')";
+                        ('$family_id','$client_or_member_id','$services1','$amount')";
 
                 $query_run = mysqli_query($connection, $query);
 

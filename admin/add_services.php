@@ -153,6 +153,11 @@
                                 <td> <input type="checkbox" class="checkbox-inline" name="services[]" value="PAP SMEAR"> PAP SMEAR </td>
                             </tr>
                     </table>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1" style="font-weight:bold;">Other Services</label>
+                    <input type="text" class="form-control" name="otherservices">
+                </div>
                 
                 <div class="form-group">
                     <label for="exampleInputPassword1" style="font-weight:bold;">Amount</label>
