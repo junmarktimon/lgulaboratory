@@ -11,6 +11,9 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="report.php">Report</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="account.php">Account</a>
       </li>
       <li>
