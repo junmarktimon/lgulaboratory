@@ -194,8 +194,6 @@ if (isset($_POST['btn_add_services'])){
         $services1 = mysqli_real_escape_string($connection, check_input($services1 . ", " . $otherServices));
     }
 
-    echo $services1;
-    die();
 
         if (!empty($client_or_member_id) || !empty($services)){
 
