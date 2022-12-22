@@ -117,6 +117,19 @@
                 <option value="step-mother">Step-mother</option>
                 <option value="brother-in-law">Brother-in-law</option>
                 <option value="sister-in-law">Sister-in-law</option>
+                <option value="mother">Mother</option>
+                <option value="father">Father</option>
+                <option value="border">Border</option>
+                <option value="step-sister">Step-sister</option>
+                <option value="step-brother">Step-brother</option>
+                <option value="father-in-law">Father-in-law</option>
+                <option value="mother-in-law">Mother-in-law</option>
+                <option value="mother-in-law">Mother-in-law</option>
+                <option value="helper">Helper</option>
+                <option value="cousin">Cousin</option>
+                <option value="friend">Friend</option>
+                <option value="great mother-in-law">Great mother-in-law</option>
+                <option value="great father-in-law">Great father-in-law</option>
             </select>
           </div>
          
