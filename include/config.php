@@ -6,7 +6,7 @@
 	//create variable to hold database configuration 
 	$server_name ="localhost";
 	$db_username = "root";
-	$db_password = "1234";
+	$db_password = "";
 	$db_name = "db_laboratory";
 
 

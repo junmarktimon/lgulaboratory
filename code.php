@@ -332,24 +332,24 @@ if (isset($_POST['btn_change_pwd'])) {
 
 
 //code for filter services
-if (isset($_POST['btn_filter'])) {
+// if (isset($_POST['btn_filter'])) {
 
-    $from = mysqli_real_escape_string($connection, check_input($_POST['from']));
-    $to =mysqli_real_escape_string($connection, check_input($_POST['to']));
+//     $from = mysqli_real_escape_string($connection, check_input($_POST['from']));
+//     $to =mysqli_real_escape_string($connection, check_input($_POST['to']));
 
-    echo $from;
-    echo "</br>";
-    echo $to;
+//     echo $from;
+//     echo "</br>";
+//     echo $to;
 
-    die();
+//     die();
 
-        if (!empty($from) && !empty($to)){
+//         if (!empty($from) && !empty($to)){
 
             
 
-        }
+//         }
 
-}
+// }
 
 
 

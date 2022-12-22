@@ -49,13 +49,17 @@
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" name="pwd" class="form-control" required>
+                        <input type="password" name="pwd" class="form-control" id="password" onkeyup="CheckPassword(this)" required>
                         <span style="color:red; font-size:10px;">* Your password must be 8 or more characters long, contain letters, numbers, and special characters </span>
+                        <div  id="passwordValidation" style="color:red" >
+    
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Confirm Password</label>
-                        <input type="password" name="pwd1" class="form-control" required>
+                        <input type="password" name="pwd1" class="form-control" id="confirm_password" onkeyup='confirmPassword(this);' required>
+                        <span id='message1'></span>
                     </div>
                     
                     <button type="submit" class="btn btn-primary float-right mb-5" name="btn_change_pwd"> Update </button>
@@ -175,6 +179,31 @@
     $(document).ready(function () {
         $('#dataTable4').DataTable();
     });
+
+    function CheckPassword(inputtxt) { 
+        var passw= /^(?=.*\d)(?=.*[a-z])(?=.*[^A-Z0-9])(?!.*\s).{7,15}$/;
+        if(inputtxt.value.match(passw)) 
+        { 
+        $("#passwordValidation").html("")
+        return true;
+        }
+        else
+        { 
+        $("#passwordValidation").html("min 8 characters which contain capital and small letter, at least one numeric digit and a special character");
+        return false;
+        }
+    }
+
+    function confirmPassword(inputtxt) {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+            document.getElementById('message1').style.color = 'green';
+            document.getElementById('message1').innerHTML = 'matching';
+        } else {
+            document.getElementById('message1').style.color = 'red';
+            document.getElementById('message1').innerHTML = 'not matching';
+        }
+    }
 
 </script>
 
