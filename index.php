@@ -70,13 +70,39 @@
 				<h6 class="text-center mt-5"> DEVELOPED BY: </h6>
 				<p class="text-center font-weight-bolder"> CITY HEALTH OFFICE-VAXCERT ICT TEAM</p>
 				
-				<div>
-					<span> Love Sniper </span>
-					<span> Love Sniper </span>
-					<span> Love Sniper </span>
-					<span> Love Sniper </span>
+				<div class="table-responsive">
+					<table class="table table-sm">
+						<tbody>
+						
+							<tr>
+								<td> Almyr Cabag </td>
+								<td> Raniel Kaye Cabalda </td>
+								<td> Junbee Timon </td>
+							</tr>
+							<tr>
+							
+								<td> Rolando Barbadillo Jr </td>
+								<td> Arnel Iyo </td>
+								<td> Reuel Sagrado </td>
+							</tr>
+							<tr>
+								<td>  </td>
+								<td> Freddie Coco </td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+				<!-- <div>
+					<span> Almyr Cabag </span>
+					<span> Raniel Kaye Cabalda </span>
+					<span> Junbee Timon </span>
+					<span> Rolando Barbadillo Jr </span>
+					<span> Arnel Iyo </span>
+					<span> Reuel Sagrado </span>
+					<span> Freddie Coco </span>
 				</div>
-				
+				 -->
 			</div>
 			<div class="col-4"></div>
 		</div>

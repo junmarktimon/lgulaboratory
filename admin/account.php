@@ -62,7 +62,7 @@
                         <span id='message1'></span>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary float-right mb-5" name="btn_change_pwd"> Update </button>
+                    <button type="submit" class="btn btn-primary float-right mb-5" name="btn_change_pwd" id="btn_update_password"> Update </button>
                 </form>
 
 
@@ -176,6 +176,8 @@
 
 <script>
 
+document.getElementById("btn_update_password").disabled = true;
+
     $(document).ready(function () {
         $('#dataTable4').DataTable();
     });
@@ -199,9 +201,11 @@
             document.getElementById('confirm_password').value) {
             document.getElementById('message1').style.color = 'green';
             document.getElementById('message1').innerHTML = 'matching';
+            document.getElementById("btn_update_password").disabled = false;
         } else {
             document.getElementById('message1').style.color = 'red';
             document.getElementById('message1').innerHTML = 'not matching';
+            document.getElementById("btn_update_password").disabled = true;
         }
     }
 
