@@ -28,7 +28,15 @@
     //code for viewing client personal info and family member
      if (isset($_POST['btn_view_client'])){
         
-        $client_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
+        $client_id1 = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
+        $client_id2 = mysqli_real_escape_string($connection, check_input($_POST['view_client1']));
+
+
+        if(empty($client_id2) and  !empty($client_id1)){
+            $client_id = $client_id1;
+        }else{
+            $client_id = $client_id2;
+        }
 
         ?>
 
@@ -39,7 +47,7 @@
                 
                         
 
-                        <div class="col-4 border">
+                        <div class="col-4 bg-light border border-light rounded">
 
                             <?php
                                 if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
@@ -59,7 +67,21 @@
                             </button>
 
                                 <h1 class="text-center mt-1"> Family Member List</h1>
-                                <!-- <h3 class="text-center mt-1"> (<?php //echo strtoupper($client_name); ?>) </h3> -->
+                                    <?php
+
+                                        $query5 = "SELECT * FROM tbl_client WHERE id = '$client_id' LIMIT 1";
+                                        $query_run5 = mysqli_query($connection,$query5);
+
+                                        foreach($query_run5 as $row5){
+
+                                            ?>
+
+                                                <h3 class="text-center" style="text-transform: uppercase;">(<?php echo htmlspecialchars($row5['lname'] . " " . $row5['fname'] . " " . $row5['mname'] . " " . $row5['suffix']) ?>)</h3>
+
+                                            <?php
+
+                                        }
+                                    ?>
                             <div class="table-responsive mt-5">
                                 <table class="table table-bordered stripe" id="dataTable2" width="100%" cellspacing="0">
                                     <thead>
@@ -70,6 +92,7 @@
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -106,6 +129,8 @@
                                                                 </button>
                                                             </td>
 
+                                                            
+
                                                         </tr>
                                                                 <?php
 
@@ -124,7 +149,7 @@
 
                         <div class="col-1"></div>
 
-                        <div class="col-5 border">
+                        <div class="col-5 bg-light border border-light rounded">
 
                             <form action="add_services.php" method="post">
                                 <input type="hidden" name="edit_services_client_id" value="<?php echo htmlspecialchars($client_id); ?>">
@@ -221,7 +246,7 @@
                 
                         
 
-                        <div class="col-4 border">
+                        <div class="col-4 bg-light border border-light rounded">
 
                             <?php
                                 if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
@@ -241,6 +266,21 @@
                             </button>
 
                                 <h1 class="text-center mt-1"> Family Member List</h1>
+                                <?php
+
+                                        $query5 = "SELECT * FROM tbl_client WHERE id = '$client_id' LIMIT 1";
+                                        $query_run5 = mysqli_query($connection,$query5);
+
+                                        foreach($query_run5 as $row5){
+
+                                            ?>
+
+                                                <h3 class="text-center" style="text-transform: uppercase;">(<?php echo htmlspecialchars($row5['lname'] . " " . $row5['fname'] . " " . $row5['mname'] . " " . $row5['suffix']) ?>)</h3>
+
+                                            <?php
+
+                                        }
+                                    ?>
                                 
                             <div class="table-responsive mt-5">
                                 <table class="table table-bordered stripe" id="dataTable2" width="100%" cellspacing="0">
@@ -252,6 +292,7 @@
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -288,6 +329,8 @@
                                                                 </button>
                                                             </td>
 
+                                                            
+
                                                         </tr>
                                                                 <?php
 
@@ -306,7 +349,7 @@
 
                         <div class="col-1"></div>
 
-                        <div class="col-5 border">
+                        <div class="col-5 bg-light border border-light rounded">
 
                             <form action="add_services.php" method="post">
                                 <input type="hidden" name="edit_services_client_id" value="<?php echo htmlspecialchars($client_id); ?>">

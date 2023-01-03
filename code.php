@@ -5,6 +5,13 @@ include('security.php');
 
 
 
+if($_SESSION['role'] != 1){
+
+    header("Location: ../index.php");
+    
+}
+
+
 
 //code for login
 if (isset($_POST['btn_login'])) 
@@ -206,12 +213,12 @@ if (isset($_POST['btn_add_services'])){
 
                 if ($query_run){
 
-                    $_SESSION['success'] = "Member Added Successfully!";
+                    $_SESSION['success'] = "Services Added Successfully!";
                     header('Location: admin/view_client.php?view_client='.$family_id);
 
                 }else{
 
-                    $_SESSION['failed'] = "Error Adding Member!";
+                    $_SESSION['failed'] = "Error Adding Services!";
                     header('Location: admin/view_client.php?view_client='.$family_id);
                 }
         

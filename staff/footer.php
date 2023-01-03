@@ -87,23 +87,23 @@
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last Name</label>
-            <input type="text" name="mlname" class="form-control" id="lastname" style="text-transform: uppercase;" required>
+            <input type="text" name="mlname" class="form-control"  style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="mfname" class="form-control" id="firstname" style="text-transform: uppercase;" required>
+            <input type="text" name="mfname" class="form-control"  style="text-transform: uppercase;" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Middle Name</label>
-            <input type="text" name="mmname" class="form-control" id="middlename" style="text-transform: uppercase;">
+            <input type="text" name="mmname" class="form-control"  style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Suffix Name</label>
-            <input type="text" name="msuffix" class="form-control" id="suffixname" style="text-transform: uppercase;">
+            <input type="text" name="msuffix" class="form-control"  style="text-transform: uppercase;">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Relation</label>
-            <select class="form-control" id="input_select" name="relation" style="text-transform: uppercase;" required>
+            <select class="form-control"  name="relation" style="text-transform: uppercase;" required>
                 <option>-- select -- </option>
                 <option value="brother">Brother</option>
                 <option value="daughter">Daughter</option>
@@ -117,6 +117,19 @@
                 <option value="step-mother">Step-mother</option>
                 <option value="brother-in-law">Brother-in-law</option>
                 <option value="sister-in-law">Sister-in-law</option>
+                <option value="mother">Mother</option>
+                <option value="father">Father</option>
+                <option value="border">Border</option>
+                <option value="step-sister">Step-sister</option>
+                <option value="step-brother">Step-brother</option>
+                <option value="father-in-law">Father-in-law</option>
+                <option value="mother-in-law">Mother-in-law</option>
+                <option value="mother-in-law">Mother-in-law</option>
+                <option value="helper">Helper</option>
+                <option value="cousin">Cousin</option>
+                <option value="friend">Friend</option>
+                <option value="great mother-in-law">Great mother-in-law</option>
+                <option value="great father-in-law">Great father-in-law</option>
             </select>
           </div>
          
@@ -247,7 +260,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="btn_update_member" class="btn btn-primary">Add</button>
+            <button type="submit" name="btn_update_member" class="btn btn-primary">Update</button>
           </div>
         </form>
     </div>
@@ -327,6 +340,7 @@
 
 
     </script>
+
 
 
   </body>

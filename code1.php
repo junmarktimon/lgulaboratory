@@ -3,7 +3,11 @@
 
 include('security.php'); 
 
+if($_SESSION['role'] != 2){
 
+    header("Location: ../index.php");
+    
+}
 
 
 
@@ -121,27 +125,35 @@ if (isset($_POST['btn_add_services'])){
 
     $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
     $client_or_member_id = mysqli_real_escape_string($connection, check_input(strtolower($_POST['client_or_member'])));
-    $services = mysqli_real_escape_string($connection, check_input(strtolower($_POST['services'])));
-    $amount = mysqli_real_escape_string($connection, check_input(strtolower($_POST['amount'])));
+    $services = $_POST['services'];
+    $otherServices = mysqli_real_escape_string($connection, check_input(strtolower($_POST['otherservices'])));
+    $amount = mysqli_real_escape_string($connection, check_input($_POST['amount']));
+    $services1 = implode(', ', $services);
+
+    if(!empty($otherServices)){
+        // $services1 = htmlspecialchars($services1 . ", " . $otherServices);
+        $services1 = mysqli_real_escape_string($connection, check_input($services1 . ", " . $otherServices));
+    }
+
 
         if (!empty($client_or_member_id) || !empty($services)){
 
                 $query = "INSERT INTO tbl_services (client_id, member_id, services, amount) 
                             VALUES 
-                        ('$family_id','$client_or_member_id','$services','$amount')";
+                        ('$family_id','$client_or_member_id','$services1','$amount')";
 
                 $query_run = mysqli_query($connection, $query);
 
 
                 if ($query_run){
 
-                    $_SESSION['success'] = "Member Added Successfully!";
-                    header('Location: staff/view_client.php?view_client='.$family_id);
+                    $_SESSION['success'] = "Services Added Successfully!";
+                    header('Location: client/view_client.php?view_client='.$family_id);
 
                 }else{
 
-                    $_SESSION['failed'] = "Error Adding Member!";
-                    header('Location: staff/view_client.php?view_client='.$family_id);
+                    $_SESSION['failed'] = "Error Adding Services!";
+                    header('Location: client/view_client.php?view_client='.$family_id);
                 }
         
             
@@ -149,7 +161,7 @@ if (isset($_POST['btn_add_services'])){
     }else{
 
         $_SESSION['failed'] = "Input Box not be empty!";
-        header('Location: staff/view_client.php?view_client='.$family_id);
+        header('Location: client/view_client.php?view_client='.$family_id);
 
     }
 
@@ -243,8 +255,20 @@ if (isset($_POST['btn_update_member'])){
 
 
 
+//code for update admin password
+if (isset($_POST['btn_change_pwd'])) {
 
+    $uname = mysqli_real_escape_string($connection, check_input($_POST['uname']));
+    $pwd = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd'])));
+    $pwd1 = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd1'])));
 
+        if (!empty($uname) && !empty($pwd) && !empty($pwd1)){
+
+            
+
+        }
+
+}
 
 
 
