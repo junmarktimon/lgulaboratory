@@ -87,8 +87,8 @@
                                     <thead>
                                         <tr>
                                             <th> Seq. # </th>
-                                            <th> ID # </th>
-                                            <th> Family ID </th>
+                                            <!-- <th> ID # </th>
+                                            <th> Family ID </th> -->
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
@@ -117,8 +117,8 @@
 
                                                         <tr style="text-transform: capitalize;">
                                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['head_family_id']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row['id']); ?> </td>
+                                                            <td><?php //echo htmlspecialchars($row['head_family_id']); ?> </td> -->
                                                             <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                                             <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['relation']); ?> </td>
 
@@ -163,7 +163,7 @@
                                     <thead>
                                         <tr>
                                         <th> Seq. # </th>
-                                        <th> ID# </th>
+                                        <!-- <th> ID# </th> -->
                                         <th> Name </th>
                                         <th> Services </th>
                                         <th> Amount </th>
@@ -196,7 +196,7 @@
 
                                                         <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq1++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row1['SID']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row1['SID']); ?> </td> -->
                                                             <td>
                                                                 <?php
                                                                      echo htmlspecialchars($row1['lname'] . " " . $row1['fname'] . " " . $row1['mname'] . " " . $row1['suffix']); 
@@ -287,8 +287,8 @@
                                     <thead>
                                         <tr>
                                             <th> Seq. # </th>
-                                            <th> ID # </th>
-                                            <th> Family ID </th>
+                                            <!-- <th> ID # </th>
+                                            <th> Family ID </th> -->
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
@@ -317,8 +317,8 @@
 
                                                         <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['head_family_id']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row['id']); ?> </td>
+                                                            <td><?php //echo htmlspecialchars($row['head_family_id']); ?> </td> -->
                                                             <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                                             <td><?php echo htmlspecialchars($row['relation']); ?> </td>
 
@@ -363,7 +363,7 @@
                                     <thead>
                                         <tr>
                                         <th> Seq. # </th>
-                                        <th> ID# </th>
+                                        <!-- <th> ID# </th> -->
                                         <th> Name </th>
                                         <th> Services </th>
                                         <th> Amount </th>
@@ -396,7 +396,7 @@
 
                                                         <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq1++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row1['SID']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row1['SID']); ?> </td> -->
                                                             <td>
                                                                 <?php
                                                                     // if($row1['tbl_services.member_id'] == $client_id){

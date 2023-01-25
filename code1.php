@@ -24,7 +24,7 @@ if (isset($_POST['btn_add_client'])){
 
         if (!empty($flname) || !empty($fname) || !empty($age) || !empty($address)){
 
-            $dupsql = "SELECT * FROM tbl_client WHERE (fname = '$fname' && mname = '$mname' && lname = '$lname')";
+            $dupsql = "SELECT * FROM tbl_client WHERE (fname = '$fname' && mname = '$mname' && lname = '$lname' && suffix = '$suffix')";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -78,7 +78,7 @@ if (isset($_POST['btn_add_member'])){
 
         if (!empty($flname) || !empty($fname) || !empty($relation)){
 
-            $dupsql = "SELECT * FROM tbl_client WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname'";
+            $dupsql = "SELECT * FROM tbl_client WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname' && suffix = '$msuffix'";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
