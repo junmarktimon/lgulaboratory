@@ -38,9 +38,10 @@
                 ?>
 
                 <!-- <form action="../code.php" method="post"> -->
-                <form>
+                <form action="../code.php" method="post">
 
-                    <input type="hidden" name="">
+                    <input type="hidden" name="admin_id" value="<?php echo htmlspecialchars($row['id']) ?>" >
+                    <input type="hidden" name="admin_username" value="<?php echo htmlspecialchars($row['username']) ?>" >
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
@@ -50,7 +51,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" name="pwd" class="form-control" id="password" onkeyup="CheckPassword(this)" required>
-                        <span style="color:red; font-size:10px;">* Your password must be 8 or more characters long, contain letters, numbers, and special characters </span>
+                        <!-- <span style="color:red; font-size:10px;">* Your password must be 8 or more characters long, contain letters, numbers, and special characters </span> -->
                         <div  id="passwordValidation" style="color:red" >
     
                         </div>
@@ -183,7 +184,7 @@ document.getElementById("btn_update_password").disabled = true;
     });
 
     function CheckPassword(inputtxt) { 
-        var passw= /^(?=.*\d)(?=.*[a-z])(?=.*[^A-Z0-9])(?!.*\s).{7,15}$/;
+        var passw= /^(?=.*\d)(?=.*[a-z])(?=.*[^A-Z0-9])(?!.*\s).{8,15}$/;
         if(inputtxt.value.match(passw)) 
         { 
         $("#passwordValidation").html("")
@@ -191,7 +192,7 @@ document.getElementById("btn_update_password").disabled = true;
         }
         else
         { 
-        $("#passwordValidation").html("min 8 characters which contain capital and small letter, at least one numeric digit and a special character");
+        $("#passwordValidation").html(" * min 8 characters which contain letters, and at least one numeric digit");
         return false;
         }
     }

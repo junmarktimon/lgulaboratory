@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 02:02 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jan 05, 2023 at 01:41 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,7 @@ CREATE TABLE `tbl_client` (
   `relation` varchar(200) NOT NULL,
   `address` varchar(255) NOT NULL,
   `date_created` datetime(5) NOT NULL DEFAULT current_timestamp(5)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_client`
@@ -60,7 +60,13 @@ INSERT INTO `tbl_client` (`id`, `lname`, `fname`, `mname`, `suffix`, `head_famil
 (30, 'doe', 'jhon', 'l', '', NULL, '22', '', 'Medina', '2022-12-02 14:16:43.84506'),
 (33, 'marcos', 'fr', 'c', 'jr', NULL, '25', '', 'Medina', '2022-12-05 08:41:39.96836'),
 (34, 'marcos', 'bongbong', 'c', '', 33, '0', 'brother', '', '2022-12-05 08:42:03.64126'),
-(35, 'marcos', 'jane', 'c', '', 33, '0', 'daughter', '', '2022-12-05 08:42:20.46489');
+(35, 'marcos', 'jane', 'c', '', 33, '0', 'daughter', '', '2022-12-05 08:42:20.46489'),
+(36, 'iyo', 'arturo', 'padulin', 'sr', NULL, '35', '', 'gingoog city', '2022-12-29 17:55:29.64930'),
+(37, 'iyo', 'arnel', 'padulin', '', 36, '0', 'father', '', '2022-12-29 17:55:58.41356'),
+(38, 'nutri', 'ion', 'cho', '', NULL, '22', '', 'gingoog city', '2023-01-03 12:22:28.39267'),
+(39, 'nutri', 'jane', 'cho', '', 38, '0', 'border', '', '2023-01-03 12:32:33.58939'),
+(40, 'nutri', 'jhon', 'cho', '', 38, '0', 'son', '', '2023-01-03 12:34:50.24608'),
+(41, 'nutri', 'ion', '', '', NULL, '34', '', 'gingoog city', '2023-01-03 12:42:41.11588');
 
 -- --------------------------------------------------------
 
@@ -75,7 +81,7 @@ CREATE TABLE `tbl_services` (
   `services` varchar(255) NOT NULL,
   `amount` decimal(8,2) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_services`
@@ -95,7 +101,9 @@ INSERT INTO `tbl_services` (`id`, `client_id`, `member_id`, `services`, `amount`
 (25, 20, 20, 'sgpt/ alt', '100.00', '2022-12-01 08:13:46'),
 (26, 18, 23, 'fasting blood sugar', '20.00', '2022-12-01 08:27:48'),
 (27, 33, 33, 'urinalysis', '20.00', '2022-12-05 00:42:52'),
-(28, 33, 35, 'hbsag (ict)', '30.00', '2022-12-05 00:43:07');
+(28, 33, 35, 'hbsag (ict)', '30.00', '2022-12-05 00:43:07'),
+(29, 36, 37, 'T4, TROPONIN I', '0.00', '2022-12-29 09:56:14'),
+(30, 38, 39, 'PREGNANCY TEST', '0.00', '2023-01-03 04:32:45');
 
 -- --------------------------------------------------------
 
@@ -109,7 +117,7 @@ CREATE TABLE `tbl_user` (
   `password` varchar(255) NOT NULL,
   `role` int(1) NOT NULL,
   `date_created` datetime(5) NOT NULL DEFAULT current_timestamp(5)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
@@ -151,13 +159,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_client`
 --
 ALTER TABLE `tbl_client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tbl_services`
 --
 ALTER TABLE `tbl_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

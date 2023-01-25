@@ -114,10 +114,26 @@
                                             </td>
 
                                             <td class="text-center" style="width: 2%;">
-                                                <!-- Button trigger modal -->
-                                                <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
-                                                <i class="fas fa-user-times"></i>
-                                                </button>
+                                                <?php
+                                                    if(empty($row['head_family_id'])){
+                                                ?>
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button"  class="btn btn-danger btn-circle" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#staticBackdrop6" id="clientdeleteid">
+                                                        <i class="fas fa-user-times"></i>
+                                                        </button>
+                                                <?php
+
+                                                    }else{
+                                                ?>
+
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button"  class="btn btn-danger btn-circle" disabled>
+                                                        <i class="fas fa-user-times"></i>
+                                                        </button>
+
+                                                        <?php
+                                                    }
+                                                ?>
                                             </td>
 
                                         </tr>

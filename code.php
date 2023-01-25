@@ -90,7 +90,7 @@ if (isset($_POST['btn_add_client'])){
 
         if (!empty($flname) || !empty($fname) || !empty($age) || !empty($address)){
 
-            $dupsql = "SELECT * FROM tbl_client WHERE (fname = '$fname' && mname = '$mname' && lname = '$lname')";
+            $dupsql = "SELECT * FROM tbl_client WHERE (fname = '$fname' && mname = '$mname' && lname = '$lname' && suffix = '$suffix')";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -144,7 +144,7 @@ if (isset($_POST['btn_add_member'])){
 
         if (!empty($flname) || !empty($fname) || !empty($relation)){
 
-            $dupsql = "SELECT * FROM tbl_client WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname'";
+            $dupsql = "SELECT * FROM tbl_client WHERE fname = '$mfname' && mname = '$mmname' && lname = '$mlname' && suffix = '$msuffix'";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -320,16 +320,85 @@ if (isset($_POST['btn_update_member'])){
 
 
 
+//code for delete member
+if (isset($_POST['btn_delete_member'])){
+
+
+    $family_id = mysqli_real_escape_string($connection, check_input($_POST['view_client']));
+    $delete_member_id = mysqli_real_escape_string($connection, check_input($_POST['delete_member_id']));
+
+
+    if (!empty($delete_member_id)){
+
+        // $query = "DELETE FROM tbl_student WHERE id ='$delete_id'";
+        $query = "DELETE tbl_client, tbl_services FROM tbl_client INNER JOIN tbl_services
+                    WHERE tbl_client.id = '$delete_member_id' && tbl_services.member_id = '$delete_member_id'";
+        $query_run = mysqli_query($connection,$query);
+
+            
+        if ($query_run) {
+         
+            $_SESSION['success'] = "Member Deleted Successfully!";
+            header('Location: admin/view_client.php?view_client='.$family_id);
+        } else {
+
+            $_SESSION['failed'] = "Error Deleting Member data!";
+            header('Location: admin/view_client.php?view_client='.$family_id);
+        }
+        
+    }
+
+}
+
+
+
+
+//code for delete client
+if (isset($_POST['btn_delete_client'])){
+
+
+    $delete_client_id = mysqli_real_escape_string($connection, check_input($_POST['delete_client_id']));
+
+
+    if (!empty($delete_client_id)){
+
+        $query = "DELETE FROM tbl_client WHERE id = '$delete_client_id' OR head_family_id = '$delete_client_id'";
+        $query_run = mysqli_query($connection,$query);
+
+            
+        if ($query_run) {
+
+            $query1 = "DELETE FROM tbl_services WHERE client_id = '$delete_client_id'";
+            $query_run1 = mysqli_query($connection,$query1);
+         
+            $_SESSION['success'] = "Client Deleted Successfully!";
+            header('Location: admin');
+        } else {
+
+            $_SESSION['failed'] = "Error Deleting Client data!";
+            header('Location: admin');
+        }
+        
+    }
+
+}
+
+
+
+
 
 //code for update admin password
 if (isset($_POST['btn_change_pwd'])) {
 
+    $admin_id = mysqli_real_escape_string($connection, check_input($_POST['admin_id']));
+    $admin_username = mysqli_real_escape_string($connection, check_input($_POST['admin_username']));
     $uname = mysqli_real_escape_string($connection, check_input($_POST['uname']));
     $pwd = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd'])));
     $pwd1 = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd1'])));
 
-        if (!empty($uname) && !empty($pwd) && !empty($pwd1)){
+        if (!empty($uname) && !empty($uname) && !empty($uname) && !empty($pwd) && !empty($pwd1)){
 
+            
             
 
         }

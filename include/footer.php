@@ -270,6 +270,72 @@
 <!-- end modal for update member -->
 
 
+<!-- delete member modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop5" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header alert alert-warning">
+          <h5 class="modal-title" id="staticBackdropLabel">Delete Member</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="../code.php" method="post">
+
+                <input type="hidden" class="form-control" id="editInput_client_member_id1" name="view_client">
+                <input type="hidden" class="form-control" id="editInput_member_delete_id" name="delete_member_id">
+
+                <h3> Are you sure you wanna delete this ? </h3>
+                <p style="font-size:0.8em; color:red;"> NOTE: This member and transaction(s) releated this person will be deleted and can't be retrieve..</p>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="btn_delete_member" class="btn btn-danger">Delete</button>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for delete member -->
+
+
+
+<!-- delete client and member modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop6" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header alert alert-warning">
+          <h5 class="modal-title" id="staticBackdropLabel">Delete Client </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="../code.php" method="post">
+
+                <input type="text" class="form-control" id="editInput_client_delete_id" name="delete_client_id">
+
+                <h3> Are you sure you wanna delete this ? </h3>
+                <p style="font-size:0.8em; color:red;"> NOTE: When you delete client, all member(s) and transaction(s) related in this client will be also deleted..</p>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="btn_delete_client" class="btn btn-danger">Delete</button>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for delete client and member -->
+
+
 
 
 
@@ -335,6 +401,30 @@
             document.getElementById("input_select_mrelation").value = mrelation;
             document.getElementById("editInput_client_member_id").value = head_id;
 
+
+        });
+
+
+
+        //get member id for specific deletion member using jquery and by calling input or button id
+        //deleter memeber
+        $(document).on('click', '#memberdeleteid', function(){
+                            
+            var deletememberid = $(this).data('id1');
+            var head_id1 = $(this).data('id7');
+
+            document.getElementById("editInput_member_delete_id").value = deletememberid;
+            document.getElementById("editInput_client_member_id1").value = head_id1;
+
+        });
+
+        //get member id for specific deletion member using jquery and by calling input or button id
+        //deleter memeber
+        $(document).on('click', '#clientdeleteid', function(){
+                            
+            var deleteclientid = $(this).data('id1');
+
+            document.getElementById("editInput_client_delete_id").value = deleteclientid;
 
         });
 

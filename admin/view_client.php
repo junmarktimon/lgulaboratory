@@ -87,8 +87,8 @@
                                     <thead>
                                         <tr>
                                             <th> Seq. # </th>
-                                            <th> ID # </th>
-                                            <th> Family ID </th>
+                                            <!-- <th> ID # </th> -->
+                                            <!-- <th> Family ID </th> -->
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
@@ -117,8 +117,8 @@
 
                                                         <tr style="text-transform: capitalize;">
                                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['head_family_id']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row['id']); ?> </td> -->
+                                                            <!-- <td><?php //echo htmlspecialchars($row['head_family_id']); ?> </td> -->
                                                             <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                                             <td style="text-transform: uppercase;"><?php echo htmlspecialchars($row['relation']); ?> </td>
 
@@ -131,7 +131,7 @@
 
                                                             <td class="text-center">
                                                                  <!-- Button trigger modal -->
-                                                                <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
+                                                                <button type="button"  class="btn btn-danger btn-circle" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id7="<?php echo htmlspecialchars($row['head_family_id']); ?>" data-toggle="modal" data-target="#staticBackdrop5" id="memberdeleteid">
                                                                     <i class="fas fa-user-times"></i>
                                                                 </button>
                                                             </td>
@@ -168,7 +168,7 @@
                                     <thead>
                                         <tr>
                                         <th> Seq. # </th>
-                                        <th> ID# </th>
+                                        <!-- <th> ID# </th> -->
                                         <th> Name </th>
                                         <th> Services </th>
                                         <th> Amount </th>
@@ -201,7 +201,7 @@
 
                                                         <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq1++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row1['SID']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row1['SID']); ?> </td> -->
                                                             <td>
                                                                 <?php
                                                                      echo htmlspecialchars($row1['lname'] . " " . $row1['fname'] . " " . $row1['mname'] . " " . $row1['suffix']); 
@@ -292,8 +292,8 @@
                                     <thead>
                                         <tr>
                                             <th> Seq. # </th>
-                                            <th> ID # </th>
-                                            <th> Family ID </th>
+                                            <!-- <th> ID # </th> -->
+                                            <!-- <th> Family ID </th> -->
                                             <th> Name </th>
                                             <th> Relation </th>
                                             <th> Edit </th>
@@ -322,8 +322,8 @@
 
                                                         <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['id']); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row['head_family_id']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row['id']); ?> </td> -->
+                                                            <!-- <td><?php// echo htmlspecialchars($row['head_family_id']); ?> </td> -->
                                                             <td><?php echo htmlspecialchars($row['lname']." ".$row['fname']. " " .$row['mname']). " " .$row['suffix']; ?> </td>
                                                             <td><?php echo htmlspecialchars($row['relation']); ?> </td>
 
@@ -336,7 +336,7 @@
 
                                                             <td class="text-center">
                                                                  <!-- Button trigger modal -->
-                                                                <button type="button"  class="btn btn-danger btn-circle" data-id2="<?php echo htmlspecialchars($row['id']); ?>" data-toggle="modal" data-target="#exampleModal" id="userdeleteid">
+                                                                 <button type="button"  class="btn btn-danger btn-circle" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id7="<?php echo htmlspecialchars($row['head_family_id']); ?>" data-toggle="modal" data-target="#staticBackdrop5" id="memberdeleteid">
                                                                     <i class="fas fa-user-times"></i>
                                                                 </button>
                                                             </td>
@@ -373,7 +373,7 @@
                                     <thead>
                                         <tr>
                                         <th> Seq. # </th>
-                                        <th> ID# </th>
+                                        <!-- <th> ID# </th> -->
                                         <th> Name </th>
                                         <th> Services </th>
                                         <th> Amount </th>
@@ -406,7 +406,7 @@
 
                                                         <tr style="text-transform: uppercase;">
                                                             <td><?php echo htmlspecialchars($seq1++); ?> </td>
-                                                            <td><?php echo htmlspecialchars($row1['SID']); ?> </td>
+                                                            <!-- <td><?php //echo htmlspecialchars($row1['SID']); ?> </td> -->
                                                             <td>
                                                                 <?php
                                                                     // if($row1['tbl_services.member_id'] == $client_id){
