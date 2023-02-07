@@ -324,7 +324,7 @@
         <div class="modal-body">
             <form action="../code.php" method="post">
 
-                <input type="text" class="form-control" id="editInput_client_delete_id" name="delete_client_id">
+                <input type="hidden" class="form-control" id="editInput_client_delete_id" name="delete_client_id">
 
                 <h3> Are you sure you wanna delete this ? </h3>
                 <p style="font-size:0.8em; color:red;"> NOTE: When you delete client, all member(s) and transaction(s) related in this client will be also deleted..</p>

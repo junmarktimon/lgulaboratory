@@ -392,40 +392,38 @@ if (isset($_POST['btn_change_pwd'])) {
 
     $admin_id = mysqli_real_escape_string($connection, check_input($_POST['admin_id']));
     $admin_username = mysqli_real_escape_string($connection, check_input($_POST['admin_username']));
-    $uname = mysqli_real_escape_string($connection, check_input($_POST['uname']));
     $pwd = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd'])));
     $pwd1 = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd1'])));
 
-        if (!empty($uname) && !empty($uname) && !empty($uname) && !empty($pwd) && !empty($pwd1)){
+        if (!empty($admin_id) && !empty($admin_username) && !empty($pwd) && !empty($pwd1)){
 
-            
+           if($pwd === $pwd1){
+                
+                $query = "UPDATE tbl_user SET password = '$pwd1' WHERE id = '$admin_id' && username = 'admin' LIMIT 1";
+
+                $query_run = mysqli_query($connection,$query);
+        
+                if($query_run){
+        
+                    $_SESSION['success'] = "Password Updated Successfully";
+                    header('Location: admin/account.php');
+
+                }else{
+
+                    $_SESSION['failed'] = "Error can't update/change password!";
+                    header('Location: admin/account.php');
+        
+                }   
+
+           }else{
+                $_SESSION['failed'] = "Error can't update/change password!";
+                header('Location: admin/account.php');
+           }
             
 
         }
 
 }
-
-
-
-//code for filter services
-// if (isset($_POST['btn_filter'])) {
-
-//     $from = mysqli_real_escape_string($connection, check_input($_POST['from']));
-//     $to =mysqli_real_escape_string($connection, check_input($_POST['to']));
-
-//     echo $from;
-//     echo "</br>";
-//     echo $to;
-
-//     die();
-
-//         if (!empty($from) && !empty($to)){
-
-            
-
-//         }
-
-// }
 
 
 

@@ -255,15 +255,38 @@ if (isset($_POST['btn_update_member'])){
 
 
 
-//code for update admin password
+//code for update staff password
 if (isset($_POST['btn_change_pwd'])) {
 
-    $uname = mysqli_real_escape_string($connection, check_input($_POST['uname']));
+    $user_staff_id = mysqli_real_escape_string($connection, check_input($_POST['user_staff_id']));
+    $user_staff_username = mysqli_real_escape_string($connection, check_input($_POST['user_staff_username']));
     $pwd = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd'])));
     $pwd1 = md5(mysqli_real_escape_string($connection, check_input($_POST['pwd1'])));
 
-        if (!empty($uname) && !empty($pwd) && !empty($pwd1)){
+        if (!empty($user_staff_id) && !empty($user_staff_username) && !empty($pwd) && !empty($pwd1)){
 
+           if($pwd === $pwd1){
+                
+                $query = "UPDATE tbl_user SET password = '$pwd1' WHERE id = '$user_staff_id' && username = '$user_staff_username' LIMIT 1";
+
+                $query_run = mysqli_query($connection,$query);
+        
+                if($query_run){
+        
+                    $_SESSION['success'] = "Password Updated Successfully";
+                    header('Location: staff/account.php');
+
+                }else{
+
+                    $_SESSION['failed'] = "Error can't update/change password!";
+                    header('Location: staff/account.php');
+        
+                }   
+
+           }else{
+                $_SESSION['failed'] = "Error can't update/change password!";
+                header('Location: staff/account.php');
+           }
             
 
         }

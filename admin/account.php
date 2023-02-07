@@ -21,7 +21,21 @@
 ?>
 
 <div class="container-fluid mt-5">
+
+                <?php
+                    if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
+                        echo '<div class="p-3 mb-2 bg-success text-white mt-5" id="message"> '.htmlspecialchars($_SESSION['success']).'</div>';
+                        unset($_SESSION['success']);
+                    }
+
+                    if (isset($_SESSION['failed']) && $_SESSION['failed'] !=''){
+                        echo '<div class="p-3 mb-2 bg-danger text-white mt-5" id="message"> '.htmlspecialchars($_SESSION['failed']).'</div>';
+                        unset($_SESSION['failed']);
+                    }
+                ?>
+                
     <div class="row">
+
         <div class="col-2"></div>
 
         <div class="col-3 bg-light border border-light rounded">
@@ -45,7 +59,8 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="twxt" class="form-control" name="uname" value="<?php echo htmlspecialchars($row['username']) ?>" disabled>
+                        <input type="text" class="form-control" value="<?php echo htmlspecialchars($row['username']) ?>" disabled>
+                        
                     </div>
 
                     <div class="form-group">

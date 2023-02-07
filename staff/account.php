@@ -15,12 +15,26 @@
     include '../include/navbar.php';
     
     $session_name = $_SESSION['username'];
+    $session_id = $_SESSION['id'];
     $last_id;
 
 
 ?>
 
 <div class="container-fluid mt-5">
+
+                <?php
+                    if (isset($_SESSION['success']) && $_SESSION['success'] !=''){
+                        echo '<div class="p-3 mb-2 bg-success text-white mt-5" id="message"> '.htmlspecialchars($_SESSION['success']).'</div>';
+                        unset($_SESSION['success']);
+                    }
+
+                    if (isset($_SESSION['failed']) && $_SESSION['failed'] !=''){
+                        echo '<div class="p-3 mb-2 bg-danger text-white mt-5" id="message"> '.htmlspecialchars($_SESSION['failed']).'</div>';
+                        unset($_SESSION['failed']);
+                    }
+                ?>
+
     <div class="row">
        
         <div class="col-4"></div>
@@ -31,27 +45,27 @@
 
                 <?php
 
-            $query = "SELECT * FROM tbl_user WHERE username = '$session_name' LIMIT 1";
+            $query = "SELECT * FROM tbl_user WHERE id = '$session_id' && username = '$session_name' LIMIT 1";
             $query_run = mysqli_query($connection,$query);
 
             foreach($query_run as $row){
 
                 ?>
 
-                <!-- <form action="../code.php" method="post"> -->
-                <form>
-
-                    <input type="hidden" name="">
+                <form action="../code1.php" method="post">
+                    
+                    <input type="hidden" class="form-control" name="user_staff_id" value="<?php echo htmlspecialchars($row['id']) ?>" >
+                    <input type="hidden" class="form-control" name="user_staff_username" value="<?php echo htmlspecialchars($row['username']) ?>" >
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="twxt" class="form-control" name="uname" value="<?php echo htmlspecialchars($row['username']) ?>" disabled>
+                        <input type="twxt" class="form-control" value="<?php echo htmlspecialchars($row['username']) ?>" disabled>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" name="pwd" class="form-control" id="password" onkeyup="CheckPassword(this)" required>
-                        <span style="color:red; font-size:10px;">* Your password must be 8 or more characters long, contain letters, numbers, and special characters </span>
+                        <!-- <span style="color:red; font-size:10px;">* Your password must be 8 or more characters long, contain letters, numbers, and special characters </span> -->
                         <div  id="passwordValidation" style="color:red" >
     
                         </div>
@@ -126,7 +140,7 @@ document.getElementById("btn_update_password").disabled = true;
         }
         else
         { 
-        $("#passwordValidation").html("min 8 characters which contain capital and small letter, at least one numeric digit and a special character");
+        $("#passwordValidation").html("* min 8 characters which contain letters, and at least one numeric digit");
         return false;
         }
     }
