@@ -31,7 +31,7 @@
         <div class="col-2"></div>
         <div class="col-8 mt-5 bg-light border border-light rounded">
             <h3 class="text-center mt-5"> Add Services</h3>
-            <form class="mt-5" action="../code.php" method="post">
+            <form class="mt-5" action="../code1.php" method="post">
 
                 <input type="hidden" class="form-control" id="editInput_family_id1" name="view_client" value="<?php echo htmlspecialchars($services_client_id); ?>">
 

@@ -96,7 +96,12 @@
 
             <h3 class="text-center mt-3"> User List </h3>
 
-            <div class="table-responsive mt-5">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mb-2 mt-4" data-toggle="modal" data-target="#addUserModal">
+                <i class="fa fa-user-plus"></i> Add User
+            </button>
+
+            <div class="table-responsive mt-2">
                 <table class="table table-bordered stripe" id="dataTable4" width="100%" cellspacing="0">
                     <thead>
                         <tr>

@@ -343,6 +343,51 @@
 
 
 
+<!-- add user modal -->
+<!-- Modal -->
+<div class="modal fade" id="addUserModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="../code.php" method="post">
+
+            <input type="hidden" class="form-control" id="editInput_family_id" name="view_client">
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" name="mlname" class="form-control" style="text-transform: lowercase;"  required>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Password</label>
+            <input type="password" name="mlname" class="form-control"  required>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Re-type password</label>
+            <input type="password" name="mlname" class="form-control"  required>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="btn_add_user" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for add user -->
+
+
+
 
 
 
