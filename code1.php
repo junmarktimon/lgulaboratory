@@ -148,12 +148,12 @@ if (isset($_POST['btn_add_services'])){
                 if ($query_run){
 
                     $_SESSION['success'] = "Services Added Successfully!";
-                    header('Location: client/view_client.php?view_client='.$family_id);
+                    header('Location: staff/view_client.php?view_client='.$family_id);
 
                 }else{
 
                     $_SESSION['failed'] = "Error Adding Services!";
-                    header('Location: client/view_client.php?view_client='.$family_id);
+                    header('Location: staff/view_client.php?view_client='.$family_id);
                 }
         
             
@@ -161,7 +161,7 @@ if (isset($_POST['btn_add_services'])){
     }else{
 
         $_SESSION['failed'] = "Input Box not be empty!";
-        header('Location: client/view_client.php?view_client='.$family_id);
+        header('Location: staff/view_client.php?view_client='.$family_id);
 
     }
 
