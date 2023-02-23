@@ -160,3 +160,10 @@ document.getElementById("btn_update_password").disabled = true;
 
 </script>
 
+<?php
+
+// Close the connection
+mysqli_close($connection); 
+
+?>
+
