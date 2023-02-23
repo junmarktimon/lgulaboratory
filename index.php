@@ -2,7 +2,14 @@
 
 	session_start();
 
-    // include 'include/header.php';
+	include('include/config.php');
+
+	if($dbconfig){
+
+	} else{
+		header("Location: include/config.php");
+	}
+
 
 ?>
 
@@ -70,24 +77,26 @@
 				<h6 class="text-center mt-5"> DEVELOPED BY: </h6>
 				<p class="text-center font-weight-bolder"> CITY HEALTH OFFICE-VAXCERT ICT TEAM</p>
 				
-				<div class="table-responsive">
-					<table class="table table-sm">
-						<tbody>
+
+								<?php
+									$query = "SELECT * FROM tbl_ict_team ";
+									$query_run = mysqli_query($connection,$query);
+
+										if (mysqli_num_rows($query_run) > 0){
+
+											while($row = mysqli_fetch_assoc($query_run)){
+
+								?>
+								
+											<div style="display: inline-block;">
+												<p style="text-transform: uppercase;" class="ml-3"> <?php echo htmlspecialchars($row['name']); ?> </p>
+											</div>
 						
-							<tr>
-								<td style="text-transform: uppercase;"> Almyr Cabag </td>
-								<td style="text-transform: uppercase;"> Raniel Kaye Cabalda </td>
-								<td style="text-transform: uppercase;"> Junbee Timon </td>
-							</tr>
-							<tr>
-							
-								<td style="text-transform: uppercase;"> Rolando Barbadillo Jr </td>
-								<td style="text-transform: uppercase;"> Reuel Sagrado </td>
-								<td style="text-transform: uppercase;"> </td>
-							</tr>
-						</tbody>
-					</table>
-					</div>
+								<?php
+											}
+										}
+								?>
+
 			</div>
 			<div class="col-4"></div>
 		</div>
