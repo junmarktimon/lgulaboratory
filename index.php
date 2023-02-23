@@ -75,34 +75,19 @@
 						<tbody>
 						
 							<tr>
-								<td> Almyr Cabag </td>
-								<td> Raniel Kaye Cabalda </td>
-								<td> Junbee Timon </td>
+								<td style="text-transform: uppercase;"> Almyr Cabag </td>
+								<td style="text-transform: uppercase;"> Raniel Kaye Cabalda </td>
+								<td style="text-transform: uppercase;"> Junbee Timon </td>
 							</tr>
 							<tr>
 							
-								<td> Rolando Barbadillo Jr </td>
-								<td> Arnel Iyo </td>
-								<td> Reuel Sagrado </td>
-							</tr>
-							<tr>
-								<td>  </td>
-								<td> Freddie Coco </td>
-								<td></td>
+								<td style="text-transform: uppercase;"> Rolando Barbadillo Jr </td>
+								<td style="text-transform: uppercase;"> Reuel Sagrado </td>
+								<td style="text-transform: uppercase;"> </td>
 							</tr>
 						</tbody>
 					</table>
 					</div>
-				<!-- <div>
-					<span> Almyr Cabag </span>
-					<span> Raniel Kaye Cabalda </span>
-					<span> Junbee Timon </span>
-					<span> Rolando Barbadillo Jr </span>
-					<span> Arnel Iyo </span>
-					<span> Reuel Sagrado </span>
-					<span> Freddie Coco </span>
-				</div>
-				 -->
 			</div>
 			<div class="col-4"></div>
 		</div>
